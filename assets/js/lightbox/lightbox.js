@@ -291,18 +291,13 @@
 
         // Is the current image's width or height is greater than the maxImageWidth or maxImageHeight
         // option than we need to size down while maintaining the aspect ratio.
-        if ((preloader.width > maxImageWidth) || (preloader.height > maxImageHeight)) {
-          if ((preloader.width / maxImageWidth) > (preloader.height / maxImageHeight)) {
+        if ((preloader.width > maxImageWidth) ) {
+
             imageWidth  = maxImageWidth;
             imageHeight = parseInt(preloader.height / (preloader.width / imageWidth), 10);
             $image.width(imageWidth);
             $image.height(imageHeight);
-          } else {
-            imageHeight = maxImageHeight;
-            imageWidth = parseInt(preloader.width / (preloader.height / imageHeight), 10);
-            $image.width(imageWidth);
-            $image.height(imageHeight);
-          }
+          
         }
       }
       self.sizeContainer($image.width(), $image.height());
