@@ -27,6 +27,22 @@ into the {body} of the default.hbs template --}}
 				    <a href="#" style="color: #1b1e21"><div data-network="googleplus" class="st-custom-button fa fa-google-plus-square"></div></a>
 				</span></h4>
 
+    {{!--  taglist --}}
+    {{#if tags}}
+    <h3 id="text" class = "less">
+      <div id="taglist">{{tags}}</div>
+    </h3>
+
+     <button id="more" style="display:none">More</button>
+     <button id="less" style="display:none">Less</button>
+    {{/if}}
+
+
+
+
+           </div>
+    {{!--  taglist --}}
+
 
             </header>
 
@@ -238,6 +254,39 @@ $(document).ready(function () {
     $("#search-field").ghostHunter({
       results: "#results"
     });
+  </script>
+
+  {{!-show/hide tags --}}
+  <script DOCTYPE="text/javascript">
+
+  $(document).ready(function(){
+    var taglist_height =$('#taglist').height();
+    var tag_height =$('#tag_element').height();
+
+      if(taglist_height >=25){
+        $("#more").show();
+      }
+
+
+
+
+      $('#more').click(function(){
+
+          $('#text').removeClass("less");
+          $("#less").show();
+          $(this).hide();
+      });
+
+
+
+      $('#less').click(function(){
+          $('#text').addClass("less");
+          $(this).hide();
+          $("#more").show();
+      });
+  })
+
+
   </script>
 
 {{/contentFor}}
