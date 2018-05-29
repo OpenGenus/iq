@@ -1,4 +1,35 @@
+
 .less {
     overflow: hidden;
     height:1.2em;
+}
+.taglist{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  padding: 3vw 0 6vw 0;
+  max-width: 840px;
+}
+.more-tags-button {
+    display:none;
+
+    padding: 9px 16px;
+    border-style: solid;
+    border-color: lightgray;
+    border-width: 1px;
+    font-size: 1.2rem;
+    line-height: 1;
+      color:gray;
+    font-weight: 500;
+    border-radius: 20px;
+    transition: all ease 0.2s;
+    background-color: #ffff
+
+}
+
+.more-tags-button:hover {
+  border-color: #3eb0ef;
+  color: #3eb0ef;
+  text-decoration: none;
 }
