@@ -1,15 +1,15 @@
 
 .less {
     overflow: hidden;
-    height:1.2em;
+    height:1.8em;
 }
 .taglist{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+
   margin: 0 auto;
-  padding: 3vw 0 6vw 0;
+  padding: 0.5vw 0 6vw 0;
   max-width: 840px;
+  display: flex;
+  flex-wrap: wrap;
 }
 .more-tags-button {
     display:none;
@@ -20,7 +20,7 @@
     border-width: 1px;
     font-size: 1.2rem;
     line-height: 1;
-      color:gray;
+    color:gray;
     font-weight: 500;
     border-radius: 20px;
     transition: all ease 0.2s;
@@ -32,4 +32,30 @@
   border-color: #3eb0ef;
   color: #3eb0ef;
   text-decoration: none;
+}
+
+.tag_item{
+margin: 3px;
+background-color: inherit;
+padding: 5px 10px;
+font-size: 12px;
+cursor: pointer;
+display: inline-block;
+border-style: solid;
+border-color: lightgray;
+border-width: 1px;
+border-radius: 20px;
+transition: all ease 0.2s;
+}
+
+.tag_item:hover {
+  border-color: #3eb0ef;
+  color: #3eb0ef;
+  text-decoration: none;
+}
+
+.taglabel{
+  margin: 0 auto;
+  padding: 0.5vw 0 0 0;
+  max-width: 840px;
 }
