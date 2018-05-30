@@ -1,7 +1,13 @@
+.upper_taglist{
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 90%;
 
+}
 .less {
     overflow: hidden;
     height:1.8em;
+
 }
 .taglist{
 
@@ -13,18 +19,17 @@
 }
 .more-tags-button {
     display:none;
-
     padding: 9px 16px;
     border-style: solid;
-    border-color: lightgray;
+    border-color: #3eb0ef;
     border-width: 1px;
     font-size: 1.2rem;
     line-height: 1;
-    color:gray;
+    color:#ffff;
     font-weight: 500;
     border-radius: 20px;
     transition: all ease 0.2s;
-    background-color: #ffff
+    background-color: #3eb0ef
 
 }
 
@@ -32,6 +37,7 @@
   border-color: #3eb0ef;
   color: #3eb0ef;
   text-decoration: none;
+  background-color: #ffff;
 }
 
 .tag_item{
@@ -42,10 +48,11 @@ font-size: 12px;
 cursor: pointer;
 display: inline-block;
 border-style: solid;
-border-color: lightgray;
+border-color: gray;
 border-width: 1px;
 border-radius: 20px;
 transition: all ease 0.2s;
+color: black;
 }
 
 .tag_item:hover {

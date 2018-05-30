@@ -28,25 +28,27 @@ into the {body} of the default.hbs template --}}
 				</span></h4>
 
     {{!--  taglist : display the list of tags  --}}
+        <div class="upper_taglist">
+          <h4 id="text" class = "less">
 
-    <h4 id="text" class = "less">
-
-      <div  id="taglist">
-
-
-              {{#if tags}}
-
-                {{#foreach tags}}
-
-                    <a target="_blank" href="{{url}}" title="{{name}}" class="tag_item">{{name}}</a>
-
-                {{/foreach}}
-
-              {{/if}}
+            <div  id="taglist" >
 
 
-      </div>
-    </h4>
+                    {{#if tags}}
+
+                      {{#foreach tags}}
+
+                          <a target="_blank" href="{{url}}" title="{{name}}" class="tag_item">{{name}}</a>
+
+                      {{/foreach}}
+
+                    {{/if}}
+
+
+            </div>
+          </h4>
+        </div>
+
 
      <button id="more" class="more-tags-button">More</button>
      <button id="less" class="more-tags-button">Less</button>
