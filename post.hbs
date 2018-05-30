@@ -27,6 +27,37 @@ into the {body} of the default.hbs template --}}
 				    <a href="#" style="color: #1b1e21"><div data-network="googleplus" class="st-custom-button fa fa-google-plus-square"></div></a>
 				</span></h4>
 
+    {{!--  taglist : display the list of tags  --}}
+        <div class="upper_taglist">
+          <h4 id="text" class = "less">
+
+            <div  id="taglist" >
+
+
+                    {{#if tags}}
+
+                      {{#foreach tags}}
+
+                          <a target="_blank" href="{{url}}" title="{{name}}" class="tag_item">{{name}}</a>
+
+                      {{/foreach}}
+
+                    {{/if}}
+
+
+            </div>
+          </h4>
+        </div>
+
+
+     <button id="more" class="more-tags-button">More</button>
+     <button id="less" class="more-tags-button">Less</button>
+
+
+
+
+    {{!--  taglist --}}
+
 
             </header>
 
@@ -47,28 +78,59 @@ into the {body} of the default.hbs template --}}
 
             <footer class="post-full-footer">
                 {{!-- Everything inside the #author tags pulls data from the author --}}
-                {{#author}}
 
-                <section class="author-card">
-                    {{#if profile_image}}
-                        <img class="author-profile-image" src="{{profile_image}}" alt="{{name}}" />
-                    {{/if}}
-                    <section class="author-card-content">
-                        <h4 class="author-card-name"><a href="{{url}}">{{name}}</a></h4>
-                        {{#if bio}}
-                            <p>{{bio}}</p>
-                        {{else}}
-                            <p>Read <a href="{{url}}">more posts</a> by this author.</p>
-                        {{/if}}
-                    </section>
-                </section>
-                <div class="post-full-footer-right">
-                    <a class="author-card-button" href="{{url}}">Read More</a>
-                </div>
+                 {{#author}}
 
-                {{/author}}
+                   <section class="author-card">
+                         {{#if profile_image}}
+                               <img class="author-profile-image" src="{{profile_image}}" alt="{{name}}" />
+                         {{/if}}
+
+                         <section class="author-card-content">
+                               <h4 class="author-card-name"><a href="{{url}}">{{name}}</a></h4>
+                             {{#if bio}}
+                                 <p>{{bio}}</p>
+                             {{else}}
+                                 <p>Read <a href="{{url}}">more posts</a> by this author.</p>
+                             {{/if}}
+                       </section>
+
+
+
+                 </section>
+
+                   <div class="post-full-footer-right">
+                           <a class="author-card-button" href="{{url}}">Read More</a>
+                   </div>
+
+
+
+                 {{/author}}
+
             </footer>
 
+      {{!-- footer list of tags --}}
+
+                <h4 >
+                  <div class="taglabel" >
+
+                      <h4 ><i class="fa fa-tag" ></i> Tags</h4>
+                  </div>
+                       <div class="taglist">
+                                     {{#if tags}}
+
+                                          {{#foreach tags}}
+                                               <a target="_blank" href="{{url}}" title="{{name}}" class="tag_item">{{name}}</a>
+                                          {{/foreach}}
+
+                                       {{/if}}
+                       </div></li>
+               </h4>
+
+
+
+
+      {{!-- Comments --}}
             <div id='discourse-comments'></div>
 
             {{!--
@@ -238,6 +300,39 @@ $(document).ready(function () {
     $("#search-field").ghostHunter({
       results: "#results"
     });
+  </script>
+
+  {{!-show/hide tags   if they excceed one line--}}
+  <script DOCTYPE="text/javascript">
+
+  $(document).ready(function(){
+    var taglist_height =$('#taglist').height();
+    var tag_height =$('#tag_element').height();
+
+      if(taglist_height >=35){
+        $("#more").show();
+      }
+
+
+
+
+      $('#more').click(function(){
+
+          $('#text').removeClass("less");
+          $("#less").show();
+          $(this).hide();
+      });
+
+
+
+      $('#less').click(function(){
+          $('#text').addClass("less");
+          $(this).hide();
+          $("#more").show();
+      });
+  })
+
+
   </script>
 
 {{/contentFor}}

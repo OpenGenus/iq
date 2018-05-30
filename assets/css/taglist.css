@@ -1,0 +1,68 @@
+.upper_taglist{
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 90%;
+
+}
+.less {
+    overflow: hidden;
+    height:1.8em;
+
+}
+.taglist{
+
+  margin: 0 auto;
+  padding: 0.5vw 0 6vw 0;
+  max-width: 840px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.more-tags-button {
+    display:none;
+    padding: 9px 16px;
+    border-style: solid;
+    border-color: #3eb0ef;
+    border-width: 1px;
+    font-size: 1.2rem;
+    line-height: 1;
+    color:#ffff;
+    font-weight: 500;
+    border-radius: 20px;
+    transition: all ease 0.2s;
+    background-color: #3eb0ef
+
+}
+
+.more-tags-button:hover {
+  border-color: #3eb0ef;
+  color: #3eb0ef;
+  text-decoration: none;
+  background-color: #ffff;
+}
+
+.tag_item{
+margin: 3px;
+background-color: inherit;
+padding: 5px 10px;
+font-size: 12px;
+cursor: pointer;
+display: inline-block;
+border-style: solid;
+border-color: gray;
+border-width: 1px;
+border-radius: 20px;
+transition: all ease 0.2s;
+color: black;
+}
+
+.tag_item:hover {
+  border-color: #3eb0ef;
+  color: #3eb0ef;
+  text-decoration: none;
+}
+
+.taglabel{
+  margin: 0 auto;
+  padding: 0.5vw 0 0 0;
+  max-width: 840px;
+}
