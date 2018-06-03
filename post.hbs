@@ -53,9 +53,6 @@ into the {body} of the default.hbs template --}}
      <button id="more" class="more-tags-button">More</button>
      <button id="less" class="more-tags-button">Less</button>
 
-
-
-
     {{!--  taglist --}}
 
 
@@ -67,6 +64,28 @@ into the {body} of the default.hbs template --}}
                 {{content}}
             </section>
 
+
+            <!--question example -->
+      <!--
+      <div class="container">
+            <h2>Question</h2>
+            <p></p>
+              <section  class="questionlist">
+                <a class="correct_option">option1</a>
+                <div class="wrong_option">option2</div>
+                <div class="wrong_option">option3</div>
+                <div class="wrong_option">option4</div>
+                <div class="wrong_option">option5</div>
+                <div class="wrong_option">option6</div>
+                <div class="wrong_option">option7</div>
+                <div class="wrong_option">option8</div>
+              </section>
+
+                </div>
+                                    -->
+          <!--question example -->
+                  </div>
+            <!-- shuffle button -->
             {{!-- Email subscribe form at the bottom of the page --}}
             {{#if @labs.subscribers}}
             <section class="subscribe-form">
@@ -308,13 +327,11 @@ $(document).ready(function () {
   $(document).ready(function(){
     var taglist_height =$('#taglist').height();
     var tag_height =$('#tag_element').height();
+    var icon =document.createElement('i');
 
       if(taglist_height >=35){
         $("#more").show();
       }
-
-
-
 
       $('#more').click(function(){
 
@@ -323,16 +340,95 @@ $(document).ready(function () {
           $(this).hide();
       });
 
-
-
       $('#less').click(function(){
           $('#text').addClass("less");
           $(this).hide();
           $("#more").show();
       });
-  })
+
+      //Add icon and colors to question answers
+      $('.correct_option').click(function(){
+      var icon = '<i class="fa fa-check fadeMe" style="margin:5px;color:#33cc33;"></i>';
+
+            if($(this).children().length<1){
+      $(this).addClass("correct_answer");
+      $(this).prepend(icon);
+      }
+
+      });
+
+      $('.wrong_option').click(function(){
+
+      var icon = '<i class="fa fa-times fadeMe" style="margin:5px;"></i>';
+  //     icon.addClass("fadeMe");
+
+      if($(this).children().length<1){
+        $(this).addClass("wrong_answer");
+
+          $(this).prepend(icon);
+      }
+
+      });
+
+     })
 
 
-  </script>
+
+//get the options
+var questions = document.getElementsByClassName("questionlist");
+
+// shuffle the elements , and remove options if they are more than 4
+for(c=0;c<=questions.length;c++){
+
+  var index;
+  var ctr2=questions[c].children.length;
+
+  var index;
+
+  while(ctr2 > 4){
+   index = Math.floor(Math.random() * ctr2);
+   if(index!=0){
+     questions[c].children[index].remove();
+     ctr2--;
+   }
+  }
+  var myArray = [1,2,3,4];
+  shuffle(myArray);
+
+for (i=0;i<=4;i++){
+    questions[c].children[i].style.order=myArray[i];
+    questions[c].children[i].style.display="block";
+    }
+
+}
+
+
+
+  //shuffle question
+function shuffle(arra1) {
+    var ctr = arra1.length, temp, index;
+
+// While there are elements in the array
+    while (ctr > 0) {
+// Pick a random index
+
+        index = Math.floor(Math.random() * ctr);
+// Decrease ctr by 1
+        ctr--;
+// And swap the last element with it
+
+        temp = arra1[ctr];
+        arra1[ctr] = arra1[index];
+        arra1[index] = temp;
+    }
+    return arra1;
+}
+
+
+
+
+
+</script>
+
 
 {{/contentFor}}
