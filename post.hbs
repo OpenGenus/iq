@@ -79,6 +79,7 @@ into the {body} of the default.hbs template --}}
                 <div class="wrong_option">option6</div>
                 <div class="wrong_option">option7</div>
                 <div class="wrong_option">option8</div>
+                  <p></p>
               </section>
 
                 </div>
@@ -327,7 +328,7 @@ $(document).ready(function () {
   $(document).ready(function(){
     var taglist_height =$('#taglist').height();
     var tag_height =$('#tag_element').height();
-    var icon =document.createElement('i');
+    var answer_found=false;
 
       if(taglist_height >=35){
         $("#more").show();
@@ -350,22 +351,30 @@ $(document).ready(function () {
       $('.correct_option').click(function(){
       var icon = '<i class="fa fa-check fadeMe" style="margin:5px;color:#33cc33;"></i>';
 
-            if($(this).children().length<1){
+      if($(this).children().length<1){
       $(this).addClass("correct_answer");
       $(this).prepend(icon);
+    
+      $('#question_message').text("Well done, you are the best.");
+      answer_found=true;
+
+      $('#question_message').css('color', 'MediumSeaGreen');
       }
 
       });
 
       $('.wrong_option').click(function(){
-
       var icon = '<i class="fa fa-times fadeMe" style="margin:5px;"></i>';
-  //     icon.addClass("fadeMe");
-
       if($(this).children().length<1){
         $(this).addClass("wrong_answer");
 
-          $(this).prepend(icon);
+        $(this).prepend(icon);
+        if(answer_found==false){
+
+              $('#question_message').text("No worries, this answer is wrong, you must try again");
+              $('#question_message').css('color', 'coral');
+              }
+
       }
 
       });
