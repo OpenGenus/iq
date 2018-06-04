@@ -96,7 +96,7 @@ justify-content: center;
 
 .correct_answer{
     border-color: lightgreen;
-    color:green;
+    color:MediumSeaGreen;
 }
 .wrong_answer{
   border-color: coral;
