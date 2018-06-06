@@ -328,7 +328,8 @@ $(document).ready(function () {
   $(document).ready(function(){
     var taglist_height =$('#taglist').height();
     var tag_height =$('#tag_element').height();
-    var answer_found=false;
+    var q_message=document.createElement('h6');
+
 
       if(taglist_height >=35){
         $("#more").show();
@@ -348,36 +349,47 @@ $(document).ready(function () {
       });
 
       //Add icon and colors to question answers
+      //click function will be shown if the question is answered correctly
       $('.correct_option').click(function(){
-      var icon = '<i class="fa fa-check fadeMe" style="margin:5px;color:#33cc33;"></i>';
+
+      var icon_check = '<i class="fa fa-check fadeMe" style="margin:5px;color:#33cc33;"></i>';
+      var icon_cross = '<i class="fa fa-times fadeMe" style="margin:5px;"></i>';
 
       if($(this).children().length<1){
+        $(this).siblings().children().remove();
+        $(this).siblings().prepend(icon_cross);
+        $(this).siblings().css({"color": "coral" ,"border-color":"coral"});
+
+
       $(this).addClass("correct_answer");
-      $(this).prepend(icon);
-    
-      $('#question_message').text("Well done, you are the best.");
-      answer_found=true;
+      $(this).prepend(icon_check);
+      q_message.innerHTML=("Well done, you are the best.");
+      q_message.classList.add("question_message");
+      q_message.style.color="MediumSeaGreen";
+      $(this).parents(':eq(0)').prepend(q_message);
 
-      $('#question_message').css('color', 'MediumSeaGreen');
-      }
-
+    }
+     $(this).attr('disabled', 'disabled');
       });
+
+
+
+    //click function will   show the message if the question is answered incorrectly
 
       $('.wrong_option').click(function(){
       var icon = '<i class="fa fa-times fadeMe" style="margin:5px;"></i>';
+
       if($(this).children().length<1){
         $(this).addClass("wrong_answer");
 
         $(this).prepend(icon);
-        if(answer_found==false){
-
-              $('#question_message').text("No worries, this answer is wrong, you must try again");
-              $('#question_message').css('color', 'coral');
-              }
-
+        q_message.innerHTML=("No worries, this answer is wrong, you must try again");
+        q_message.classList.add("question_message");
+        q_message.style.color="coral";
+        $(this).parents(':eq(0)').prepend(q_message);
       }
 
-      });
+        });
 
      })
 
@@ -404,10 +416,14 @@ for(c=0;c<=questions.length;c++){
   var myArray = [1,2,3,4];
   shuffle(myArray);
 
-for (i=0;i<=4;i++){
-    questions[c].children[i].style.order=myArray[i];
-    questions[c].children[i].style.display="block";
-    }
+questions[c].children[0].style.order=myArray[0];
+questions[c].children[1].style.order=myArray[1];
+questions[c].children[2].style.order=myArray[2];
+questions[c].children[3].style.order=myArray[3];
+questions[c].children[0].style.display="block";
+questions[c].children[1].style.display="block";
+questions[c].children[2].style.display="block";
+questions[c].children[3].style.display="block";
 
 }
 
