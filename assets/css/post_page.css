@@ -125,10 +125,11 @@ justify-content: center;
 .fadeMe.none {
   display:none
 }
+
 .question_message{
+  color: MediumSeaGreen;
   text-align: center;
   margin-top: 30px;
   padding: 5px;
   transform: scale(0.8);
-
 }
