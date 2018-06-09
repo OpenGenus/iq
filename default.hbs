@@ -63,6 +63,36 @@
         {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
         {{{body}}}
 
+
+        {{!-- Chat button--}}
+
+      <div id="Forum_Button">
+      <button id="Discourse_button"  class="feedback">
+          <i class="fa fa-comments fa-3x "></i>
+      </button>
+      </div>
+
+      <div id="Discourse_Forum" class="Discourse_Forum">
+
+
+
+        <!--promote the user to discourse forum -->
+          <div>
+                <span id="Discourse_close" class="Discourse_close">&times;</span>
+          </div>
+
+          <div class="Discourse_Popup_Container">
+            <div class="Discourse_Popup_Content">
+
+            <p>Visit our Forum on Discourse and Ask us anything</p>
+
+            <a target="_blank" class="discourse_link" href="https://discourse.opengenus.org/">View Forum</a>
+            </div>
+          </div>
+
+       </div>
+       {{!-- Chat button--}}
+
         {{!-- The footer at the very bottom of the screen --}}
         <footer class="site-footer outer">
             <div class="site-footer-content inner">
@@ -98,7 +128,7 @@
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous">
     </script>
-
+    <script type="text/javascript" src="{{asset "js/chatbox.js"}}"></script>
     <script type="text/javascript" src="{{asset "js/jquery.fitvids.js"}}"></script>
     <script type="text/javascript" src="{{asset "ghostHunter/dist/jquery.ghosthunter.js"}}"></script>
     <script type="text/javascript" src="{{asset "js/tab.js"}}"></script>
@@ -123,6 +153,9 @@
     {{#if pagination.pages}}
     <script>
         var maxPages = parseInt('{{pagination.pages}}');
+
+
+
     </script>
     <script src="{{asset "js/infinitescroll.js"}}"></script>
     {{/if}}
