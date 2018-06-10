@@ -34,9 +34,9 @@
     #scrollBtn {
         display: none;
         position: fixed;
-        bottom: 70px;
-        right: 30px;
-        z-index: 99;
+        bottom: 12%;
+        right: 36px;
+        z-index: 999;
         border: none;
         outline: none;
         background-color: yellow;
@@ -49,6 +49,11 @@
 
     #scrollBtn:hover {
       background-color: #555;
+    }
+    @media (max-width: 400px) {
+    #scrollBtn{
+      right: 17px;
+    }
     }
     </style>
 
@@ -84,7 +89,7 @@
           <div class="Discourse_Popup_Container">
             <div class="Discourse_Popup_Content">
 
-            <p>Visit our Forum on Discourse and Ask us anything</p>
+            <p>Visit our discussion forum to ask any question and join our community</p>
 
             <a target="_blank" class="discourse_link" href="https://discourse.opengenus.org/">View Forum</a>
             </div>
