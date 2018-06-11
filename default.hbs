@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="{{asset "built/lightbox.css"}}" />
 
+
     <style>
     a {
         text-decoration: none !important;
@@ -52,7 +53,8 @@
     }
     @media (max-width: 400px) {
     #scrollBtn{
-      right: 17px;
+      right: 18px;
+      bottom: 14%;
     }
     }
     </style>
@@ -69,32 +71,29 @@
         {{{body}}}
 
 
+
         {{!-- Chat button--}}
 
       <div id="Forum_Button">
-      <button id="Discourse_button"  class="feedback">
-          <i class="fa fa-comments fa-3x "></i>
+      <button id="Discourse_button"  class="Discourse_button">
+                  <i class="fa fa-comments fa-3x"></i>
       </button>
       </div>
 
       <div id="Discourse_Forum" class="Discourse_Forum">
-
-
-
         <!--promote the user to discourse forum -->
-          <div>
-                <span id="Discourse_close" class="Discourse_close">&times;</span>
-          </div>
-
-          <div class="Discourse_Popup_Container">
-            <div class="Discourse_Popup_Content">
+          <div   class="Discourse_Popup_Container" >
+              <span id="Discourse_close" class="Discourse_close">&times;</span>
+            <div id="Discourse_Popup_icon" class="Discourse_Popup_icon">
+           <img src="../assets/images/Join_community.png" class="community_icon">
+            </div>
+            <div class="Discourse_Popup_Content" >
 
             <p>Visit our discussion forum to ask any question and join our community</p>
 
             <a target="_blank" class="discourse_link" href="https://discourse.opengenus.org/">View Forum</a>
             </div>
           </div>
-
        </div>
        {{!-- Chat button--}}
 

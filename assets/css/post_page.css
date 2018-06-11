@@ -133,16 +133,19 @@ justify-content: center;
   padding: 5px;
   transform: scale(0.8);
 }
-.feedback {
+
+
+/* CSS code the the Discourse popup message */
+.Discourse_button {
   align-content: center;
   background-color : #351ded;
   color: white;
   padding: 10px 20px;
   border-radius: 50%;
-height: 84px;
-padding-top: 8px;
-transform: scale(0.8);
-outline:none;
+  height: 84px;
+  padding-top: 8px;
+  transform: scale(0.8);
+  outline:none;
 }
 
 #Forum_Button {
@@ -155,8 +158,8 @@ outline:none;
 }
 .Discourse_close{
   position: absolute;
-  top: 5px;
-  right: 12px;
+  top: -17px;
+  right: 17px;
   transform: scale(1.4);
 }
 .Discourse_close:hover{
@@ -166,41 +169,35 @@ outline:none;
 
 .Discourse_Forum{
  display: none;
+ position: fixed;
   border-radius: 5px;
   z-index: 999;
-
-  position: fixed;
-/*  background: linear-gradient(
-  to top,
-  #fff 0%,
-  #fff 50%,
-  #351ded 50%,
-  #351ded 100%
-);*/
+ padding: 0px;
+ padding-top: -5px;
   background-color:#351ded;
-  bottom: 100px;
+  bottom: 95px;
   right: 20px;
-  width: 330px;
-  height: 220px;
+  width: 350px;
+  height: 280px;
  font-size: 18px;
  color: white;
-
+ text-align: center;
 }
 
 .Discourse_Popup_Container{
-  padding: 30px;
-  position: absolute;
+    position: absolute;
     top: 50%;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%)
 }
+
 .Discourse_Popup_Content{
   text-align: center;
-  line-height: 1.1em;
 }
+
 @media (max-width: 400px) {
-.feedback {
+.Discourse_button {
   transform: scale(0.7);
 }
 #Forum_Button {
@@ -216,6 +213,19 @@ right: -20px;
    left: 0px;
    z-index: 9999;
    border-radius: 0px;
+   background-color: rgba(0,0,0,0.9);
+ }
+ .Discourse_Popup_Container{
+  padding: 25px;
+  width: 95%;
+   background-color:#351ded;
+ }
+ .Discourse_close{
+   transform: scale(2);
+   margin-top: 30px;
+ }
+ .Discourse_close:hover{
+   transform: scale(3);
  }
 }
 
@@ -225,8 +235,15 @@ border: 2px solid white;
 border-radius: 20px;
 color: #fff;
 padding: 0px 10px 5px 10px;
+transition: 0.3s;
 
 }
 .discourse_link:hover{
-background: rgba(0,0,0,0.2)
+background: rgba(0,0,0,0.3)
+}
+
+.community_icon{
+  width: 128px;
+  margin-bottom:  15px;
+  margin-top: -5px;
 }
