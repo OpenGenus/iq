@@ -65,6 +65,10 @@ into the {body} of the default.hbs template --}}
             </section>
 
 
+
+
+                <!-- Discourse forum -->
+
             <!--question example -->
       <!--
       <div class="container">
@@ -85,7 +89,7 @@ into the {body} of the default.hbs template --}}
                 </div>
                                     -->
           <!--question example -->
-                  </div>
+          </div>
             <!-- shuffle button -->
             {{!-- Email subscribe form at the bottom of the page --}}
             {{#if @labs.subscribers}}
@@ -126,6 +130,9 @@ into the {body} of the default.hbs template --}}
 
 
                  {{/author}}
+
+
+
 
             </footer>
 
@@ -393,7 +400,25 @@ $(document).ready(function () {
 
      })
 
+     //shuffle question
+   function shuffle(arra1){
+   var ctr = arra1.length, temp, index;
 
+   // While there are elements in the array
+       while (ctr > 0){
+   // Pick a random index
+
+           index = Math.floor(Math.random() * ctr);
+   // Decrease ctr by 1
+           ctr--;
+   // And swap the last element with it
+
+           temp = arra1[ctr];
+           arra1[ctr] = arra1[index];
+           arra1[index] = temp;
+          }
+       return arra1;
+   }
 
 //get the options
 var questions = document.getElementsByClassName("questionlist");
@@ -413,40 +438,15 @@ for(c=0;c<=questions.length;c++){
      ctr2--;
    }
   }
+
   var myArray = [1,2,3,4];
+
   shuffle(myArray);
 
-questions[c].children[0].style.order=myArray[0];
-questions[c].children[1].style.order=myArray[1];
-questions[c].children[2].style.order=myArray[2];
-questions[c].children[3].style.order=myArray[3];
-questions[c].children[0].style.display="block";
-questions[c].children[1].style.display="block";
-questions[c].children[2].style.display="block";
-questions[c].children[3].style.display="block";
-
-}
-
-
-
-  //shuffle question
-function shuffle(arra1) {
-    var ctr = arra1.length, temp, index;
-
-// While there are elements in the array
-    while (ctr > 0) {
-// Pick a random index
-
-        index = Math.floor(Math.random() * ctr);
-// Decrease ctr by 1
-        ctr--;
-// And swap the last element with it
-
-        temp = arra1[ctr];
-        arra1[ctr] = arra1[index];
-        arra1[index] = temp;
-    }
-    return arra1;
+for(i=0;i<=3;i++){
+  questions[c].children[i].style.order=myArray[i];
+  questions[c].children[i].style.display="block";
+  }
 }
 
 

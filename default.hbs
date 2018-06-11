@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="{{asset "built/lightbox.css"}}" />
 
+
     <style>
     a {
         text-decoration: none !important;
@@ -34,9 +35,9 @@
     #scrollBtn {
         display: none;
         position: fixed;
-        bottom: 70px;
-        right: 30px;
-        z-index: 99;
+        bottom: 12%;
+        right: 36px;
+        z-index: 999;
         border: none;
         outline: none;
         background-color: yellow;
@@ -50,6 +51,12 @@
     #scrollBtn:hover {
       background-color: #555;
     }
+    @media (max-width: 400px) {
+    #scrollBtn{
+      right: 18px;
+      bottom: 14%;
+    }
+    }
     </style>
 
     {{!-- This tag outputs SEO meta+structured data and other important settings --}}
@@ -62,6 +69,33 @@
 
         {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
         {{{body}}}
+
+
+
+        {{!-- Chat button--}}
+
+      <div id="Forum_Button">
+      <button id="Discourse_button"  class="Discourse_button">
+                  <i class="fa fa-comments fa-3x"></i>
+      </button>
+      </div>
+
+      <div id="Discourse_Forum" class="Discourse_Forum">
+        <!--promote the user to discourse forum -->
+          <div   class="Discourse_Popup_Container" >
+              <span id="Discourse_close" class="Discourse_close">&times;</span>
+            <div id="Discourse_Popup_icon" class="Discourse_Popup_icon">
+           <img src="../assets/images/Join_community.png" class="community_icon">
+            </div>
+            <div class="Discourse_Popup_Content" >
+
+            <p>Visit our discussion forum to ask any question and join our community</p>
+
+            <a target="_blank" class="discourse_link" href="https://discourse.opengenus.org/">View Forum</a>
+            </div>
+          </div>
+       </div>
+       {{!-- Chat button--}}
 
         {{!-- The footer at the very bottom of the screen --}}
         <footer class="site-footer outer">
@@ -98,7 +132,7 @@
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous">
     </script>
-
+    <script type="text/javascript" src="{{asset "js/chatbox.js"}}"></script>
     <script type="text/javascript" src="{{asset "js/jquery.fitvids.js"}}"></script>
     <script type="text/javascript" src="{{asset "ghostHunter/dist/jquery.ghosthunter.js"}}"></script>
     <script type="text/javascript" src="{{asset "js/tab.js"}}"></script>
@@ -123,6 +157,9 @@
     {{#if pagination.pages}}
     <script>
         var maxPages = parseInt('{{pagination.pages}}');
+
+
+
     </script>
     <script src="{{asset "js/infinitescroll.js"}}"></script>
     {{/if}}
