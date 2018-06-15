@@ -267,10 +267,7 @@ background: rgba(0,0,0,0.3)
 
 
 .in_page_link {
-
-   white-space: nowrap;
-   overflow: hidden;
-   text-overflow: ellipsis;
+  color: black;
   text-align: left;
   width: 150px;
   padding: 5px;
@@ -279,7 +276,7 @@ background: rgba(0,0,0,0.3)
   border-right: 1px solid lightgrey;
   border-top :1px solid lightgrey;
   border-bottom:1px solid lightgrey;
-  border-left: 3px solid 	#CD5C5C;
+  border-left: 3px solid 	#3eb0ef;
   transition: all ease 0.5s;
 }
 
@@ -287,6 +284,8 @@ background: rgba(0,0,0,0.3)
 
 .in_page_link:hover{
   font-size: 17px;
+  color: #3eb0ef;
+
 }
 @media (max-width: 400px) {
   .table_of_contents{
