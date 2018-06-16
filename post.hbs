@@ -9,6 +9,7 @@ into the {body} of the default.hbs template --}}
     </div>
 </header>
 
+
 {{!-- Everything inside the #post tags pulls data from the post --}}
 {{#post}}
 
@@ -26,6 +27,8 @@ into the {body} of the default.hbs template --}}
 				    <a href="#" style="color: #1b1e21"><div data-network="linkedin" class="st-custom-button fa fa-linkedin-square"></div></a>
 				    <a href="#" style="color: #1b1e21"><div data-network="googleplus" class="st-custom-button fa fa-google-plus-square"></div></a>
 				</span></h4>
+
+
 
     {{!--  taglist : display the list of tags  --}}
         <div class="upper_taglist">
@@ -55,12 +58,23 @@ into the {body} of the default.hbs template --}}
 
     {{!--  taglist --}}
 
-
             </header>
 
+       <!--tabshead-->
+       <!--
+            <div class="table_of_contents">
+            <a href="#test1" class="in_page_link">Iterate-Down-a-List</a>
+            <a href="#test2" class="in_page_link">Iterate-Down-a-List</a>
+            <a href="#test2" class="in_page_link">this link will promp the user to the second heading</a>
+            <a href="#test2" class="in_page_link">this link will promp the user to the second heading</a>
+            <a href="#test2" class="in_page_link">this link will promp the user to the second heading</a>
+            <a href="#test2" class="in_page_link">this link will promp the user to the second heading</a>
+            </div>
+-->
             <button id="scrollBtn" class="fa fa-angle-up" title="Go to top"></button>
 
             <section class="post-full-content">
+
                 {{content}}
             </section>
 
@@ -332,6 +346,18 @@ $(document).ready(function () {
   {{!-show/hide tags   if they excceed one line--}}
   <script DOCTYPE="text/javascript">
 
+  //in-page links and table of contents
+  $('.in_page_link').click(function(){
+    event.preventDefault()
+
+//scroll to the href of the link
+        $('html, body').animate({
+            scrollTop: $( $(this).attr('href') ).offset().top
+        }, 500);
+        return false;
+
+  });
+
   $(document).ready(function(){
     var taglist_height =$('#taglist').height();
     var tag_height =$('#tag_element').height();
@@ -378,7 +404,6 @@ $(document).ready(function () {
     }
      $(this).attr('disabled', 'disabled');
       });
-
 
 
     //click function will   show the message if the question is answered incorrectly
@@ -448,7 +473,6 @@ for(i=0;i<=3;i++){
   questions[c].children[i].style.display="block";
   }
 }
-
 
 </script>
 
