@@ -293,6 +293,44 @@ background: rgba(0,0,0,0.3)
 
   }
   .in_page_link{
-    width: 45%;
+    min-width: 40%;
   }
+}
+/*Authors*/
+.Authors_list{
+  margin: 0 auto;
+  margin-top: 0px;
+  padding: 0px;
+  max-width: 840px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.Authors_tag_item{
+margin: 5px;
+padding: 5px 10px;
+font-size: 17px;
+cursor: pointer;
+display: inline-block;
+border-style: solid;
+border-color: gray;
+border-width: 1px;
+border-radius: 50px;
+transition: all ease 0.2s;
+font-weight: bold;
+color: black;
+}
+
+
+
+.Authors_tag_item:hover {
+
+  text-decoration: none;
+  transform: scale(1.05);
+}
+.co-author-profile-image{
+  margin-right:5px;
+  width:45px;
+  height:45px;
+  border-radius:100%;
+  object-fit:cover
 }
