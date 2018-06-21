@@ -400,6 +400,13 @@ $(document).ready(function () {
       q_message.style.color="MediumSeaGreen";
       $(this).parents(':eq(0)').prepend(q_message);
 
+ // Show the answer explanation
+
+      if($(this).parent().siblings(".Answer_explanation").length >= 1) {
+     $(this).parent().siblings(".Answer_explanation").css({"display":"block"});
+
+      }
+
     }
      $(this).attr('disabled', 'disabled');
       });
@@ -458,8 +465,9 @@ for(c=0;c<=questions.length;c++){
   while(ctr2 > 4){
    index = Math.floor(Math.random() * ctr2);
    if(index!=0){
-     questions[c].children[index].remove();
-     ctr2--;
+         questions[c].children[index].remove();
+
+      ctr2--;
    }
   }
 

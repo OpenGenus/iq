@@ -103,6 +103,12 @@ margin-bottom: 20px;
   border-color: coral;
   color: coral;
 }
+.Answer_explanation{
+  padding: 10px;
+  display: none;
+  border: 3px solid MediumSeaGreen;
+  border-radius: 5px;
+}
 @media (max-width: 400px) {
 
   .correct_option , .wrong_option{
@@ -323,7 +329,6 @@ color: black;
 
 
 .Authors_tag_item:hover {
-
   text-decoration: none;
   transform: scale(1.05);
 }
