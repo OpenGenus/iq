@@ -1,3 +1,5 @@
+
+
 .upper_taglist{
   margin-left: auto;
   margin-right: auto;
@@ -16,6 +18,7 @@
   max-width: 840px;
   display: flex;
   flex-wrap: wrap;
+
 }
 .more-tags-button {
     display:none;
@@ -52,6 +55,7 @@ border-width: 1px;
 border-radius: 20px;
 transition: all ease 0.2s;
 color: black;
+
 }
 
 .tag_item:hover {
@@ -109,7 +113,7 @@ margin-bottom: 20px;
   border: 3px solid MediumSeaGreen;
   border-radius: 5px;
 }
-@media (max-width: 400px) {
+@media (max-width: 480px) {
 
   .correct_option , .wrong_option{
 
@@ -205,7 +209,7 @@ transform: scale(0.8);
   text-align: center;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 480px) {
 .Discourse_button {
   transform: scale(0.6);
 }
@@ -262,8 +266,8 @@ background: rgba(0,0,0,0.3)
   color:#3eb0ef;
   margin-bottom: 20px;
   margin-top: 20px;
-  margin-left: 5px;
-  margin-right: auto;
+  margin-left: 0px;
+  margin-right: 0px;
   max-width: 840px;
   display: flex;
   flex-wrap: wrap;
@@ -275,7 +279,7 @@ background: rgba(0,0,0,0.3)
 .in_page_link {
   color: black;
   text-align: left;
-  min-width: 150px;
+  min-width:160px;
   padding: 5px;
   display: inline-block;
   margin: 5px;
@@ -284,6 +288,9 @@ background: rgba(0,0,0,0.3)
   border-bottom:1px solid lightgrey;
   border-left: 3px solid 	#3eb0ef;
   transition: all ease 0.5s;
+  -webkit-flex: 1;  /* Safari 6.1+ */
+  -ms-flex: 1;  /* IE 10 */
+  flex: 1;
 }
 
 
@@ -338,4 +345,47 @@ color: black;
   height:45px;
   border-radius:100%;
   object-fit:cover
+}
+.social_media_header_links{
+
+  margin:10px;
+  width:50px;
+  height:50px;
+  border-radius:100%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all ease 0.2s;
+}
+
+.header_social_tab{
+  padding: 10px;
+  margin: 0 auto;
+
+  display: flex;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (max-width: 480px) {
+  .social_media_header_links{
+    margin:5px;
+    width:40px;
+    height:40px;
+
+  }
+}
+.post_card_title {
+    margin-top: 0;
+    transition: all ease 0.3s;
+}
+.post_card_title:hover,.post_card_excerpt:hover{
+  color: #3eb0ef;
+}
+
+.post_card_excerpt {
+    font-family: Georgia, serif;
+    transition: all ease 0.3s;
 }

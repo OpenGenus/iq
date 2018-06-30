@@ -19,15 +19,39 @@ into the {body} of the default.hbs template --}}
         <article class="post-full {{post_class}} {{#unless feature_image}}no-image{{/unless}}">
 
             <header class="post-full-header">
-                <h3 id="title_spark" class="post-full-title">{{title}}</h3>
+                <h1   class="post-full-title">{{title}}</h1>
 
-                <h4><span>
-				    <a href="#" style="color: #1b1e21"><div data-network="twitter" class="st-custom-button fa fa-twitter-square"></div></a>
-				    <a href="#" style="color: #1b1e21"><div data-network="facebook" class="st-custom-button fa fa-facebook-square"></div></a>
-				    <a href="#" style="color: #1b1e21"><div data-network="linkedin" class="st-custom-button fa fa-linkedin-square"></div></a>
-				    <a href="#" style="color: #1b1e21"><div data-network="googleplus" class="st-custom-button fa fa-google-plus-square"></div></a>
-				</span></h4>
+    <!--            <h4><span>
 
+        				    <a href="#"  style="color: #1b1e21"><div data-network="twitter" class="st-custom-button fa fa-twitter-square "></div></a>
+        				    <a href="#" style="color: #1b1e21"><div data-network="facebook" class="st-custom-button fa fa-facebook-square"></div></a>
+        				    <a href="#" style="color: #1b1e21"><div data-network="linkedin" class="st-custom-button fa fa-linkedin-square"></div></a>
+        				    <a href="#" style="color: #1b1e21"><div data-network="googleplus" class="st-custom-button fa fa-google-plus-square"></div></a>
+				</span></h4> -->
+
+              <div class="header_social_tab">
+                <!-- Twitter-->
+              <a class="social_media_header_links" style="background: #00aced;" href="https://twitter.com/share?text=You will love this article on {{encode title}}&amp;url={{url absolute="true"}}"
+                  onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+                  <i class="fa fa-twitter" style="transform:scale(1.3);"></i>
+              </a>
+                  <!-- Facebook-->
+              <a class="social_media_header_links" style="background: #3b5998;" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
+                  onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+                  <i class="fa fa-facebook" style="transform:scale(1.3);"></i>
+              </a>
+                <!--linkedin-->
+                <a class="social_media_header_links" style="background: #0077b5;" href="https://www.linkedin.com/shareArticle?mini=true&url={{url absolute="true"}}&title={{encode title}}"
+                    onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+                    <i class="fa fa-linkedin" style="transform:scale(1.4);"></i>
+                </a>
+                  <!-- googleplus-->
+                <a class="social_media_header_links " style="background: #dd4b39;" href="https://plus.google.com/share?url={{url absolute="true"}}"
+                    onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+                    <i class="fa fa-google-plus header_social_icon " style="transform:scale(1.4);"></i>
+                </a>
+
+              </div>
 
 
     {{!--  taglist : display the list of tags  --}}
