@@ -108,13 +108,16 @@ margin-bottom: 20px;
   color: coral;
 }
 .Answer_explanation{
+
   padding: 10px;
   display: none;
   border: 3px solid MediumSeaGreen;
   border-radius: 5px;
 }
 @media (max-width: 480px) {
-
+  .Answer_explanation{
+    margin:12px;
+  }
   .correct_option , .wrong_option{
 
     width:100%;
