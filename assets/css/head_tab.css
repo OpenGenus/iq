@@ -47,11 +47,8 @@ ul.tabshead li.active {
 	display: block;
 }
 
-
-
 @media screen and (max-width: 480px) {
 	.tabshead {
 		display: none;
 	}
-
 }
