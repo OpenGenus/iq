@@ -578,9 +578,8 @@ The first (most recent) post in the list is styled to be bigger than the others 
 .post-full-meta-date {
     color: var(--blue);
 }
-
 .post-full-title {
-    margin: 0;
+    margin: 20px;
     color: color(var(--darkgrey) l(-5%));
 }
 
@@ -966,6 +965,7 @@ Usage (In Ghost editor):
         font-size: 1.2rem;
         line-height: 1.3em;
     }
+
     .post-full-title {
         font-size: 2.9rem;
     }
