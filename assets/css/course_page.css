@@ -157,12 +157,21 @@ color:  #3eb0ef;
   transition: 0.4s;
    width: 240px;
 }
+.course_page_header{
+  height:300px;
+}
 @media (max-width: 400px) {
   .search-txt{
      width: 80%;
   }
   .search-box{
   width: 90%;
+  }
+
+}
+@media (max-width: 500px) {
+  .course_page_header{
+    height:150px;
   }
 
 }
