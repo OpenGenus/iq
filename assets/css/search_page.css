@@ -1,5 +1,10 @@
 /*Search page CSS style*/
+.header_image {
+  width: 600px;
+   margin-top: -20px;
+   margin-bottom: 10px;
 
+}
 .search_page{
   position: fixed; /* Stay in place */
       z-index: 99999; /* Sit on top */
