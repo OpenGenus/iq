@@ -112,10 +112,11 @@ body {
     color: #fff;
     background:#351ded no-repeat 50%;
     background-size:cover;
-    /*
-    background: color(var(--darkgrey) l(-5%)) no-repeat center center;
-    background-size: cover;
-    */
+    background: #351ded; /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #351ded 0%, #5e46c9 64%, #05abe0 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #351ded 0%,#5e46c9 64%,#05abe0 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #351ded 0%,#5e46c9 64%,#05abe0 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#351ded', endColorstr='#05abe0',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
 .site-header:before {
@@ -171,16 +172,17 @@ body {
     max-height: 45px;
 }
 
-.site-description {
-    z-index: 10;
-    margin: 0;
-    padding: 5px 0;
-    font-size: 2.2rem;
-    font-weight: 300;
-    letter-spacing: 0.5px;
-    opacity: 0.8;
-}
 
+.site-slogan{
+  z-index: 10;
+  margin: 0;
+  padding: 5px 0;
+  font-size: 1.9rem;
+  letter-spacing: 0.5px;
+  opacity: 0.8;
+
+  font-weight:100;
+}
 @media (max-width: 500px) {
     .site-title {
         font-size: 3rem;
@@ -809,11 +811,11 @@ Usage (In Ghost editor):
     margin: 1.5em 0 3em;
     padding: 20px;
     max-width: 100%;
-    border: color(var(--darkgrey) l(-10%)) 1px solid;
+/*    border: color(var(--darkgrey) l(-10%)) 1px solid;*/
     color: var(--whitegrey);
     font-size: 1.4rem;
     line-height: 1.5em;
-    background: color(var(--darkgrey) l(-3%));
+  /*  background: color(var(--darkgrey) l(-3%));*/
     border-radius: 5px;
 }
 
