@@ -23,10 +23,18 @@ into the {body} of the default.hbs template --}}
                 <h1 class="post-full-title">{{title}}</h1>
                 <h4><span>
 
-                     <a href="#"  style="color: #1b1e21"><div data-network="twitter" class="st-custom-button fa fa-twitter-square "></div></a>
-                     <a href="#" style="color: #1b1e21"><div data-network="facebook" class="st-custom-button fa fa-facebook-square"></div></a>
-                     <a href="#" style="color: #1b1e21"><div data-network="linkedin" class="st-custom-button fa fa-linkedin-square"></div></a>
-                     <a href="#" style="color: #1b1e21"><div data-network="googleplus" class="st-custom-button fa fa-google-plus-square"></div></a>
+                        <a href="#" style="color: #1b1e21">
+                            <div data-network="twitter" class="st-custom-button fa fa-twitter-square "></div>
+                        </a>
+                        <a href="#" style="color: #1b1e21">
+                            <div data-network="facebook" class="st-custom-button fa fa-facebook-square"></div>
+                        </a>
+                        <a href="#" style="color: #1b1e21">
+                            <div data-network="linkedin" class="st-custom-button fa fa-linkedin-square"></div>
+                        </a>
+                        <a href="#" style="color: #1b1e21">
+                            <div data-network="googleplus" class="st-custom-button fa fa-google-plus-square"></div>
+                        </a>
                     </span>
                 </h4>
             </header>
@@ -50,9 +58,9 @@ into the {body} of the default.hbs template --}}
 {{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
 {{#contentFor "scripts"}}
 <script>
-$(function() {
-    var $postContent = $(".post-full-content");
-    $postContent.fitVids();
-});
+    $(function () {
+        var $postContent = $(".post-full-content");
+        $postContent.fitVids();
+    });
 </script>
 {{/contentFor}}
