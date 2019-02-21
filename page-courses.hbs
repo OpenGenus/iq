@@ -1,20 +1,23 @@
+{{#is "page"}}{{/is}}
+
 {{!< default}}
 {{!-- The tag above means: insert everything in this file
 into the {body} of the default.hbs template --}}
 
 {{!-- The big featured header, it uses blog cover image as a BG if available --}}
-<header class="site-header outer  {{#if feature_image}}" style="background-image: url({{feature_image}}){{else}}no-cover{{/if}}">
+<header class="site-header outer  {{#if feature_image}}"
+    style="background-image: url({{feature_image}}){{else}}no-cover{{/if}}">
     <div class="inner">
         {{> "site-nav"}}
         <div class="site-header-content course_page_header">
             <h1 class="site-title">Courses</h1>
             <div class="search-box">
-              <form id="search-courses">
-              <input class="search-txt" type="text" name="" placeholder="Search">
-              <a class="search-btn">
-                <i class="fa fa-search"></i>
-              </a>
-            </form>
+                <form id="search-courses">
+                    <input class="search-txt" type="text" name="" placeholder="Search">
+                    <a class="search-btn">
+                        <i class="fa fa-search"></i>
+                    </a>
+                </form>
             </div>
         </div>
     </div>
@@ -42,8 +45,8 @@ into the {body} of the default.hbs template --}}
 
             <section class="post-full-content">
 
-              <div id="course_cntainer" class="course_container">
-              </div>
+                <div id="course_cntainer" class="course_container">
+                </div>
 
                 {{content}}
             </section>
@@ -59,10 +62,10 @@ into the {body} of the default.hbs template --}}
 {{#contentFor "scripts"}}
 <script type="text/javascript" src="{{asset "js/Courses/courses.js"}}"></script>
 <script>
-$(function() {
-    var $postContent = $(".post-full-content");
-    $postContent.fitVids();
-});
+    $(function () {
+        var $postContent = $(".post-full-content");
+        $postContent.fitVids();
+    });
 
 
 
