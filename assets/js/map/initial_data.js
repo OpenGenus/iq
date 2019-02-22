@@ -3,24 +3,43 @@ window.INITIAL_DATA =
 window.SCRAPING_KEY = "dk4qmwuz";
 
 var js = JSON.parse(INITIAL_DATA);
-// console.log(js);
 
 html = '<svg class="mindmap-svg" viewBox="-356.80451500765685 -586.5010822596126 637.1347523470067 551.1287262462758" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">';
 
 html += '<g id="mindmap-subnodes"></g><g>';
 
-html += '<path class="mindmap-connection" d="M -206.80451500765687 -185.3723560133368 Q -206.80451500765687 -185.3723560133368 , -55.30872217668207 -436.50108225961264"> </path> <path class="mindmap-connection" d="M 130.33023733934982 -192.6515650113338 Q 130.33023733934982 -192.6515650113338 , -55.30872217668207 -436.50108225961264"></path></g><g>';
+var dict = {};
 
 for (i = 0; i < js['nodes'].length; i++) {
     curr_node = js['nodes'][i];
     id = curr_node['text'];
     x = curr_node['x'];
     y = curr_node['y'];
+    dict[id] = [x, y];
     width = curr_node['width'];
     height = curr_node['height'];
     node_html = curr_node['html'];
-    html += `<foreignobject class="mindmap-node" id="${id}" width="${width}" height="${height}" x="${x}" y="${y}">${node_html}<title></title> </foreignobject>`;
+    html += `<foreignobject class="mindmap-node" id="${id}" width="${width}" height="${height}" 
+    x="${x}" y="${y}">${node_html}<title></title> </foreignobject>`;
 }
+
+html += '</g><g>';
+
+console.log(dict);
+
+for (i = 0; i < js['connections'].length; i++) {
+    curr_node = js['connections'][i];
+    source = curr_node['source'];
+    target = curr_node['target'];
+    source_x = dict[source][0];
+    source_y = dict[source][1];
+    target_x = dict[target][0];
+    target_y = dict[target][1];
+
+    html += `<path class="mindmap-connection" d="M ${source_x} ${source_y} Q ${source_x} ${source_y} ,${target_x} ${target_y}"> </path>`;
+}
+
+html += '</g>';
 
 content_div = document.getElementById('mind-map-content');
 content_div.innerHTML = html;
@@ -94,39 +113,3 @@ content_div.innerHTML = html;
 //         "index": 1
 //     }]
 // }
-
-
-//             <path class="mindmap-connection"
-//                 d="M -206.80451500765687 -185.3723560133368 Q -206.80451500765687 -185.3723560133368 , -55.30872217668207 -436.50108225961264">
-//             </path>
-//             <path class="mindmap-connection"
-//                 d="M 130.33023733934982 -192.6515650113338 Q 130.33023733934982 -192.6515650113338 , -55.30872217668207 -436.50108225961264">
-//             </path>
-//         </g>
-
-//         <g>
-//             <foreignobject class="mindmap-node" id="searchalgorithm" width="240" height="60"
-//                 x="-173.30872217668207" y="-466.50108225961264"><a
-//                     href="https://dotamania.herokuapp.com/scrape/dk4qmwuz#"
-//                     onclick="selectNode(&#39;search algorithm&#39;)">➡️ search algorithm <img
-//                         class="mindmap-emoji" title="wiki"
-//                         src="./Dota Mania _ Mind Map Web Scraping_files/1f310.png"></a>
-//                 <title></title>
-//             </foreignobject>
-
-//             <foreignobject class="mindmap-node" id="linearsearch" width="146" height="56"
-//                 x="-277.80451500765685" y="-213.3723560133368"><a
-//                     href="https://dotamania.herokuapp.com/scrape/dk4qmwuz#"
-//                     onclick="selectNode(&#39;linear search&#39;)"> linear search </a>
-//                 <title></title>
-//             </foreignobject>
-
-//             <foreignobject class="mindmap-node" id="binarysearch" width="152" height="56"
-//                 x="56.33023733934982" y="-220.6515650113338"><a
-//                     href="https://dotamania.herokuapp.com/scrape/dk4qmwuz#"
-//                     onclick="selectNode(&#39;binary search&#39;)"> binary search </a>
-//                 <title></title>
-//             </foreignobject>
-//         </g>
-//     </svg>
-// </div>
