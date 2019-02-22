@@ -3,6 +3,10 @@
 {{!-- The tag above means: insert everything in this file
 into the {body} of the default.hbs template --}}
 
+<!DOCTYPE html>
+<!-- saved from url=(0047)https://dotamania.herokuapp.com/scrape/dk4qmwuz -->
+<html lang="en" class="gr__dotamania_herokuapp_com">
+
 <header class="site-header outer">
     <div class="inner">
         {{> "site-nav"}}
@@ -107,54 +111,9 @@ into the {body} of the default.hbs template --}}
             <button id="scrollBtn" class="fa fa-angle-up" title="Go to top"></button>
 
             <section class="post-full-content">
-
+                <div id='mind-map-content'></div>
                 {{content}}
             </section>
-
-
-            <div>
-                <!-- viewBox="" -->
-                <div><svg class="mindmap-svg"
-                        viewBox="-356.80451500765685 -586.5010822596126 637.1347523470067 551.1287262462758"
-                        style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-                        <g id="mindmap-subnodes"></g>
-
-
-                        <g></g>
-                        <g>
-                            <path class="mindmap-connection"
-                                d="M -206.80451500765687 -185.3723560133368 Q -206.80451500765687 -185.3723560133368 , -55.30872217668207 -436.50108225961264">
-                            </path>
-                            <path class="mindmap-connection"
-                                d="M 130.33023733934982 -192.6515650113338 Q 130.33023733934982 -192.6515650113338 , -55.30872217668207 -436.50108225961264">
-                            </path>
-                        </g>
-                        <g>
-                            <foreignobject class="mindmap-node" id="searchalgorithm" width="240" height="60"
-                                x="-173.30872217668207" y="-466.50108225961264"><a
-                                    href="https://dotamania.herokuapp.com/scrape/dk4qmwuz#"
-                                    onclick="selectNode(&#39;search algorithm&#39;)">➡️ search algorithm <img
-                                        class="mindmap-emoji" title="wiki"
-                                        src="./Dota Mania _ Mind Map Web Scraping_files/1f310.png"></a>
-                                <title></title>
-                            </foreignobject>
-                            <foreignobject class="mindmap-node" id="linearsearch" width="146" height="56"
-                                x="-277.80451500765685" y="-213.3723560133368"><a
-                                    href="https://dotamania.herokuapp.com/scrape/dk4qmwuz#"
-                                    onclick="selectNode(&#39;linear search&#39;)"> linear search </a>
-                                <title></title>
-                            </foreignobject>
-                            <foreignobject class="mindmap-node" id="binarysearch" width="152" height="56"
-                                x="56.33023733934982" y="-220.6515650113338"><a
-                                    href="https://dotamania.herokuapp.com/scrape/dk4qmwuz#"
-                                    onclick="selectNode(&#39;binary search&#39;)"> binary search </a>
-                                <title></title>
-                            </foreignobject>
-                        </g>
-                    </svg>
-                </div>
-            </div>
-
             <!-- Discourse forum -->
 
     </div>
@@ -549,6 +508,60 @@ into the {body} of the default.hbs template --}}
     }
 
 </script>
+<script type='text/javascript' src="{{asset "js/map/initial_data.js"}}"></script>
+
+
+
+
+
+
+
+
+
+
+{{!-- <div><svg class="mindmap-svg"
+                        viewBox="-356.80451500765685 -586.5010822596126 637.1347523470067 551.1287262462758"
+                        style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                        <g id="mindmap-subnodes"></g>
+
+                        <g></g>
+                        <g>
+                            <path class="mindmap-connection"
+                                d="M -206.80451500765687 -185.3723560133368 Q -206.80451500765687 -185.3723560133368 , -55.30872217668207 -436.50108225961264">
+                            </path>
+                            <path class="mindmap-connection"
+                                d="M 130.33023733934982 -192.6515650113338 Q 130.33023733934982 -192.6515650113338 , -55.30872217668207 -436.50108225961264">
+                            </path>
+                        </g>
+                        <g>
+                            <foreignobject class="mindmap-node" id="searchalgorithm" width="240" height="60"
+                                x="-173.30872217668207" y="-466.50108225961264"><a
+                                    href="https://dotamania.herokuapp.com/scrape/dk4qmwuz#"
+                                    onclick="selectNode(&#39;search algorithm&#39;)">➡️ search algorithm <img
+                                        class="mindmap-emoji" title="wiki"
+                                        src="./Dota Mania _ Mind Map Web Scraping_files/1f310.png"></a>
+                                <title></title>
+                            </foreignobject>
+                            <foreignobject class="mindmap-node" id="linearsearch" width="146" height="56"
+                                x="-277.80451500765685" y="-213.3723560133368"><a
+                                    href="https://dotamania.herokuapp.com/scrape/dk4qmwuz#"
+                                    onclick="selectNode(&#39;linear search&#39;)"> linear search </a>
+                                <title></title>
+                            </foreignobject>
+                            <foreignobject class="mindmap-node" id="binarysearch" width="152" height="56"
+                                x="56.33023733934982" y="-220.6515650113338"><a
+                                    href="https://dotamania.herokuapp.com/scrape/dk4qmwuz#"
+                                    onclick="selectNode(&#39;binary search&#39;)"> binary search </a>
+                                <title></title>
+                            </foreignobject>
+                        </g>
+                    </svg>
+                </div> --}}
+
+
+
+
+
 
 
 {{/contentFor}}
