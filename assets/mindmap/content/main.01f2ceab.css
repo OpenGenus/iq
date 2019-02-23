@@ -4,8 +4,8 @@ body {
 }
 
 .mindmap-svg {
-    height: 800px;
-    width: 800px
+    height: 500px;
+    width: 600px
 }
 
 .mindmap-svg:focus {
