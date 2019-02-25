@@ -3,6 +3,13 @@ body {
     margin: 0
 }
 
+div#site-nav>a:link {
+    color: blue;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-weight: bold;
+}
+
 .mindmap-svg {
     height: 500px;
     width: 600px

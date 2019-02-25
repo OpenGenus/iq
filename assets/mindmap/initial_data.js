@@ -2,6 +2,8 @@
 
 var js = JSON.parse(data);
 
+console.log(data);
+
 html = '<svg class="mindmap-svg" viewBox="-356.80451500765685 -486.5010822596126 637.1347523470067 551.1287262462758" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">';
 
 html += '<g id="mindmap-subnodes"></g><g>';
@@ -41,3 +43,11 @@ html += '</g>';
 
 content_div = document.getElementById('mind-map-content');
 content_div.innerHTML = html;
+
+nav_div = document.getElementById('site-nav');
+site_html = `
+<a href='http://iq.opengenus.org/${js['link'][0]}'>${js['category'][0]}</a> 
+<a href='http://iq.opengenus.org/${js['link'][1]}'>${js['category'][1]}</a> 
+<a href='http://iq.opengenus.org/${js['link'][2]}'>${js['category'][2]}</a> 
+`;
+nav_div.innerHTML = site_html;
