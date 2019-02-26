@@ -3,11 +3,30 @@ body {
     margin: 0
 }
 
-div#site-nav>a:link {
+div#site-nav>ul>li>a:link {
     color: blue;
     margin-left: 5px;
     margin-right: 5px;
     font-weight: bold;
+    display: inline-block;
+    padding: .25rem;
+}
+
+div#site-nav>ul>li {
+    display: inline-block;
+    letter-spacing: normal;
+}
+
+div#site-nav>ul>li>i {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+
+div#site-nav>ul>li>i.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
 }
 
 .mindmap-svg {

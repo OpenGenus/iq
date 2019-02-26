@@ -34,6 +34,7 @@ into the {body} of the default.hbs template --}}
             <header class="post-full-header">
                 {{!-- <h1 class="post-full-title" style="color:#292929; font-size:30px ; ">{{title}}</h1> --}}
                 <div id='site-nav'></div>
+                <span id='pos'></span>
             </header>
             <button id="scrollBtn" class="fa fa-angle-up" title="Go to top"></button>
             <section class="post-full-content">
@@ -130,5 +131,22 @@ into the {body} of the default.hbs template --}}
 
 <script type='text/javascript' src="{{asset "mindmap/map.js"}}"></script>
 <script type='text/javascript' src="{{asset "mindmap/initial_data.js"}}"></script>
+<script>
+    window.onload = function () {
+        console.log('loaded');
+
+        var mindmap = document.getElementsByClassName('mindmap-svg')[0];
+        g = mindmap.getElementsByTagName('g');
+
+        mindmap.onmousemove = function (e) {
+            if (e.which == 1) {
+                for (i = 0; i < g.length; i++) {
+                    g[i].setAttribute("transorm", `translate(${e.pageX},${e.pageY})`);
+                    //g[i].style.transorm = `translate(${e.pageX},${e.pageY})`;
+                }
+            }
+        }
+    }
+</script>
 
 {{/contentFor}}
