@@ -29,9 +29,13 @@ div#site-nav>ul>li>i.right {
     -webkit-transform: rotate(-45deg);
 }
 
+#mind-map-content {
+    overflow: hidden;
+}
+
 .mindmap-svg {
     height: 500px;
-    width: 600px
+    width: 600px;
 }
 
 .mindmap-svg:focus {

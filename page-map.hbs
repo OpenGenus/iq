@@ -131,22 +131,50 @@ into the {body} of the default.hbs template --}}
 
 <script type='text/javascript' src="{{asset "mindmap/map.js"}}"></script>
 <script type='text/javascript' src="{{asset "mindmap/initial_data.js"}}"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
-    window.onload = function () {
-        console.log('loaded');
+    $(function () {
+        $(".mindmap-svg").draggable({ scroll: false });
+        //$(".mindmap-svg").draggable({ containment: "#mind-map-content", scroll: false });
+    });
+</script>
 
-        var mindmap = document.getElementsByClassName('mindmap-svg')[0];
-        g = mindmap.getElementsByTagName('g');
+<script>
+    $(document).ready(function () {
+        function noscroll() {
+            window.scrollTo(0, 0);
+        }
+        document.getElementsByClassName('mindmap-svg')[0].addEventListener('scroll', noscroll);
+        //window.addEventListener('scroll', noscroll);
+        g = document.getElementsByClassName('mindmap-svg')[0].getElementsByTagName('g');
 
-        mindmap.onmousemove = function (e) {
-            if (e.which == 1) {
+        $('.mindmap-svg').bind('wheel mousewheel', function (e) {
+            var delta;
+
+            if (e.originalEvent.wheelDelta !== undefined)
+                delta = e.originalEvent.wheelDelta;
+            else
+                delta = e.originalEvent.deltaY * -1;
+
+            if (delta > 0) {
                 for (i = 0; i < g.length; i++) {
-                    g[i].setAttribute("transorm", `translate(${e.pageX},${e.pageY})`);
-                    //g[i].style.transorm = `translate(${e.pageX},${e.pageY})`;
+                    if (map_scale < max_scale) {
+                        map_scale += 0.01;
+                        g[i].setAttribute("transform", `scale(${map_scale})`);
+                    }
                 }
             }
-        }
-    }
+            else {
+                for (i = 0; i < g.length; i++) {
+                    if (map_scale > min_scale) {
+                        map_scale -= 0.01;
+                        g[i].setAttribute("transform", `scale(${map_scale})`);
+                    }
+                }
+            }
+            console.log(map_scale);
+        });
+    });
 </script>
 
 {{/contentFor}}

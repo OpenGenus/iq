@@ -1,6 +1,9 @@
 // window.SCRAPING_KEY = "dk4qmwuz";
 
 var js = JSON.parse(data);
+var map_scale = 1;
+var min_scale = 0.3;
+var max_scale = 5;
 
 html = '<svg class="mindmap-svg" viewBox="-356.80451500765685 -486.5010822596126 637.1347523470067 551.1287262462758" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">';
 
