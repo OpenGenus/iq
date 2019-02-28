@@ -42,7 +42,7 @@
       z-index: 999;
       border: none;
       outline: none;
-      background-color: yellow;
+      background-color: #351ed478;
       color: white;
       cursor: pointer;
       padding: 15px;
@@ -51,13 +51,14 @@
     }
 
     #scrollBtn:hover {
-      background-color: #555;
+      background-color: #351ed4;
     }
 
-    @media (max-width: 400px) {
+    @media (max-width: 480px) {
       #scrollBtn {
         right: 18px;
         bottom: 80px;
+        transform: scale(0.9);
       }
     }
   </style>
@@ -177,6 +178,7 @@
   <script type="text/javascript"
     src="//platform-api.sharethis.com/js/sharethis.js#property=5a8129cbe45fbb001342fed3&product=custom-share-buttons"></script>
   <script>
+  /*
     document.getElementById('scrollBtn').addEventListener('click', function (event) {
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
@@ -190,7 +192,21 @@
         document.getElementById("scrollBtn").style.display = "none";
       };
     });
+*/
 
+// ===== Scroll to Top ====
+ $(window).scroll(function() {
+    if ($(this).scrollTop() >= 50) {        // If page is scrolled more than 50px
+        $('#scrollBtn').fadeIn(500);    // Fade in the arrow
+    } else {
+        $('#scrollBtn').fadeOut(500);   // Else fade out the arrow
+    }
+});
+$('#scrollBtn').click(function() {      // When arrow is clicked
+    $('body,html').animate({
+        scrollTop : 0                       // Scroll to top of body
+    }, 500);
+});
 
   </script>
 
