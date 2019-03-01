@@ -38,39 +38,13 @@ into the {body} of the default.hbs template --}}
             </header>
             <button id="scrollBtn" class="fa fa-angle-up" title="Go to top"></button>
             <section class="post-full-content">
-                <div id='mind-map-content'></div>
-                {{content}}
+                <svg class="mindmap-svg" id="mindmap-svg"
+                    viewBox="-336.80451500765685 -486.5010822596126 637.1347523470067 551.1287262462758"
+                    style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); background: lightblue;">
+                </svg>
+                {{!-- {{content}} --}}
             </section>
-    </div>
-
-    <footer>
-        {{!-- Everything inside the #author tags pulls data from the author --}}
-        <div class="post-full-footer">
-        </div>
-
-        {{!-- footer list of tags --}}
-
-        <h4>
-            <div class="taglabel">
-
-                <h4><i class="fa fa-tag"></i> Tags</h4>
-            </div>
-            <div class="taglist">
-                {{#if tags}}
-
-                {{#foreach tags}}
-                <a target="_blank" href="{{url}}" title="{{name}}" class="tag_item">{{name}}</a>
-                {{/foreach}}
-
-                {{/if}}
-            </div>
-            </li>
-        </h4>
-
-
-    </footer>
-    </article>
-
+        </article>
     </div>
 </main>
 
@@ -98,10 +72,11 @@ into the {body} of the default.hbs template --}}
                         {{/foreach}}
                     </ul>
                 </div>
-                <footer class="read-next-card-footer">
+
+                {{!-- <footer class="read-next-card-footer">
                     <a href="{{#../primary_tag}}{{url}}{{/../primary_tag}}">{{plural meta.pagination.total empty='No posts' singular='% post' plural='See all % posts'}}
                         →</a>
-                </footer>
+                </footer> --}}
             </article>
             {{/if}}
             {{/get}}
@@ -131,26 +106,21 @@ into the {body} of the default.hbs template --}}
 
 <script type='text/javascript' src="{{asset "mindmap/map.js"}}"></script>
 <script type='text/javascript' src="{{asset "mindmap/initial_data.js"}}"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script>
-    $(function () {
-        $(".mindmap-svg").draggable({ scroll: false });
-        //$(".mindmap-svg").draggable({ containment: "#mind-map-content", scroll: false });
-    });
-</script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
 <script>
     $(document).ready(function () {
-        function noscroll() {
-            window.scrollTo(0, 0);
-        }
-        document.getElementsByClassName('mindmap-svg')[0].addEventListener('scroll', noscroll);
-        //window.addEventListener('scroll', noscroll);
         g = document.getElementsByClassName('mindmap-svg')[0].getElementsByTagName('g');
+
+        var box = $('.mindmap-svg'),
+            height = box.height(),
+            scrollHeight = box.get(0).scrollHeight;
+        box.off("mousewheel").on("mousewheel", function (event) {
+            var blockScrolling = this.scrollTop === scrollHeight - height && event.deltaY < 0 || this.scrollTop === 0 && event.deltaY > 0;
+            return !blockScrolling;
+        });
 
         $('.mindmap-svg').bind('wheel mousewheel', function (e) {
             var delta;
-
             if (e.originalEvent.wheelDelta !== undefined)
                 delta = e.originalEvent.wheelDelta;
             else
@@ -160,7 +130,7 @@ into the {body} of the default.hbs template --}}
                 for (i = 0; i < g.length; i++) {
                     if (map_scale < max_scale) {
                         map_scale += 0.01;
-                        g[i].setAttribute("transform", `scale(${map_scale})`);
+                        g[i].setAttribute("transform", `translate(${translate_x},${translate_y}) scale(${map_scale})`);
                     }
                 }
             }
@@ -168,11 +138,24 @@ into the {body} of the default.hbs template --}}
                 for (i = 0; i < g.length; i++) {
                     if (map_scale > min_scale) {
                         map_scale -= 0.01;
-                        g[i].setAttribute("transform", `scale(${map_scale})`);
+                        g[i].setAttribute("transform", `translate(${translate_x},${translate_y}) scale(${map_scale})`);
                     }
                 }
             }
-            console.log(map_scale);
+        });
+
+        $('.mindmap-svg').bind("mousemove", function (e) {
+            if (e.which == 1) {
+                translate_x = e.pageX - start_x;
+                translate_y = e.pageY - start_y;
+
+                for (i = 0; i < g.length; i++) {
+                    g[i].setAttribute("transform", `translate(${translate_x},${translate_y}) scale(${map_scale})`);
+                }
+            } else {
+                start_x = e.pageX;
+                start_y = e.pageY;
+            }
         });
     });
 </script>
