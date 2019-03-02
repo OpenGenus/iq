@@ -8,7 +8,7 @@ var max_scale = 5;
 var translate_x = 0;
 var translate_y = 0;
 
-//html = '<svg class="mindmap-svg" viewBox="-356.80451500765685 -486.5010822596126 637.1347523470067 551.1287262462758" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); background: white;">';
+//html = '<svg class="mindmap-svg" viewBox="-356.8045150076568 -486.5010822596126 637.1347523470067 551.1287262462758" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); background: white;">';
 
 html = '<g id="mindmap-subnodes"></g><g></g><g>';
 
