@@ -7,14 +7,12 @@
 <link rel="stylesheet" href="{{asset "mindmap/ontent/slick-theme.min.css"}}">
 <link rel=" stylesheet" href="{{asset "mindmap/content/main.01f2ceab.css"}}">
 
-{{!< default}}
+{{!< default_map}}
 
 {{!-- The tag above means: insert everything in this file
 into the {body} of the default.hbs template --}}
 
 <!DOCTYPE html>
-<!-- saved from url=(0047)https://dotamania.herokuapp.com/scrape/dk4qmwuz -->
-<html lang="en" class="gr__dotamania_herokuapp_com">
 
 <header class="site-header outer">
     <div class="inner">
@@ -26,100 +24,11 @@ into the {body} of the default.hbs template --}}
 {{!-- Everything inside the #post tags pulls data from the post --}}
 {{#post}}
 
-<main id="site-main" class="site-main outer" role="main">
-    <div class="inner">
-
-        <article class="post-full {{post_class}} {{#unless feature_image}}no-image{{/unless}}">
-
-            <header class="post-full-header">
-                {{!-- <h1 class="post-full-title" style="color:#292929; font-size:30px ; ">{{title}}</h1> --}}
-                <div id='site-nav'></div>
-                <span id='pos'></span>
-            </header>
-            <button id="scrollBtn" class="fa fa-angle-up" title="Go to top"></button>
-            <section class="post-full-content">
-                <div id='mind-map-content'></div>
-                {{content}}
-            </section>
-    </div>
-
-    <footer>
-        {{!-- Everything inside the #author tags pulls data from the author --}}
-        <div class="post-full-footer">
-        </div>
-
-        {{!-- footer list of tags --}}
-
-        <h4>
-            <div class="taglabel">
-
-                <h4><i class="fa fa-tag"></i> Tags</h4>
-            </div>
-            <div class="taglist">
-                {{#if tags}}
-
-                {{#foreach tags}}
-                <a target="_blank" href="{{url}}" title="{{name}}" class="tag_item">{{name}}</a>
-                {{/foreach}}
-
-                {{/if}}
-            </div>
-            </li>
-        </h4>
-
-
-    </footer>
-    </article>
-
-    </div>
-</main>
-
-{{!-- Links to Previous/Next posts --}}
-<aside class="read-next outer">
-    <div class="inner">
-        <div class="read-next-feed">
-            {{#if primary_tag}}
-            {{#get "posts" filter="tags:{{primary_tag.slug}}+id:-{{id}}" limit="3" as |related_posts|}}
-            {{#if related_posts}}
-            <article class="read-next-card" {{#if ../primary_tag.feature_image}}
-                style="background-image: url({{../primary_tag.feature_image}})" {{else}} {{#if @blog.cover_image}}
-                style="background-image: url({{@blog.cover_image}})" {{/if}} {{/if}}>
-                <header class="read-next-card-header">
-                    <small class="read-next-card-header-sitetitle">&mdash; {{@blog.title}} &mdash;</small>
-                    {{#../primary_tag}}
-                    <h3 class="read-next-card-header-title"><a href="{{url}}">{{name}}</a></h3>
-                    {{/../primary_tag}}
-                </header>
-                <div class="read-next-divider">{{> "icons/infinity"}}</div>
-                <div class="read-next-card-content">
-                    <ul>
-                        {{#foreach related_posts}}
-                        <li><a href="{{url}}">{{title}}</a></li>
-                        {{/foreach}}
-                    </ul>
-                </div>
-                <footer class="read-next-card-footer">
-                    <a href="{{#../primary_tag}}{{url}}{{/../primary_tag}}">{{plural meta.pagination.total empty='No posts' singular='% post' plural='See all % posts'}}
-                        →</a>
-                </footer>
-            </article>
-            {{/if}}
-            {{/get}}
-            {{/if}}
-
-            {{!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs --}}
-            {{#next_post}}
-            {{> "post-card"}}
-            {{/next_post}}
-
-            {{!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs --}}
-            {{#prev_post}}
-            {{> "post-card"}}
-            {{/prev_post}}
-
-        </div>
-    </div>
-</aside>
+<div id='site-nav'></div>
+<svg class="mindmap-svg" id="mindmap-svg"
+    viewBox="-336.80451500765685 -486.5010822596126 637.1347523470067 551.1287262462758"
+    style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); background: gray;">
+</svg>
 
 {{!-- Floating header which appears on-scroll, included from includes/floating-header.hbs --}}
 {{> floating-header}}
@@ -131,22 +40,65 @@ into the {body} of the default.hbs template --}}
 
 <script type='text/javascript' src="{{asset "mindmap/map.js"}}"></script>
 <script type='text/javascript' src="{{asset "mindmap/initial_data.js"}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
 <script>
-    window.onload = function () {
-        console.log('loaded');
+    $(document).ready(function () {
 
-        var mindmap = document.getElementsByClassName('mindmap-svg')[0];
-        g = mindmap.getElementsByTagName('g');
+        if ($(document).height() > $(window).height()) {
+            var scrollTop = ($('html').scrollTop()) ? $('html').scrollTop() : $('body').scrollTop(); // Works for Chrome, Firefox, IE...
+            $('html').addClass('noscroll').css('top', -scrollTop);
+        }
 
-        mindmap.onmousemove = function (e) {
-            if (e.which == 1) {
+        g = document.getElementsByClassName('mindmap-svg')[0].getElementsByTagName('g');
+
+        // diable scrolling on map
+        var box = $('.mindmap-svg'),
+            height = box.height(),
+            scrollHeight = box.get(0).scrollHeight;
+        box.off("mousewheel").on("mousewheel", function (event) {
+            var blockScrolling = this.scrollTop === scrollHeight - height && event.deltaY < 0 || this.scrollTop === 0 && event.deltaY > 0;
+            return !blockScrolling;
+        });
+
+        $('.mindmap-svg').bind('wheel mousewheel', function (e) {
+            var delta;
+            if (e.originalEvent.wheelDelta !== undefined)
+                delta = e.originalEvent.wheelDelta;
+            else
+                delta = e.originalEvent.deltaY * -1;
+
+            if (delta > 0) {
                 for (i = 0; i < g.length; i++) {
-                    g[i].setAttribute("transorm", `translate(${e.pageX},${e.pageY})`);
-                    //g[i].style.transorm = `translate(${e.pageX},${e.pageY})`;
+                    if (map_scale < max_scale) {
+                        map_scale += 0.01;
+                        g[i].setAttribute("transform", `translate(${translate_x},${translate_y}) scale(${map_scale})`);
+                    }
                 }
             }
-        }
-    }
+            else {
+                for (i = 0; i < g.length; i++) {
+                    if (map_scale > min_scale) {
+                        map_scale -= 0.01;
+                        g[i].setAttribute("transform", `translate(${translate_x},${translate_y}) scale(${map_scale})`);
+                    }
+                }
+            }
+        });
+
+        $('.mindmap-svg').bind("mousemove", function (e) {
+            if (e.which == 1) {
+                translate_x = e.pageX - start_x;
+                translate_y = e.pageY - start_y;
+
+                for (i = 0; i < g.length; i++) {
+                    g[i].setAttribute("transform", `translate(${translate_x},${translate_y}) scale(${map_scale})`);
+                }
+            } else {
+                start_x = e.pageX;
+                start_y = e.pageY;
+            }
+        });
+    });
 </script>
 
 {{/contentFor}}

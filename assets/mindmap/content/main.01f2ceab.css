@@ -1,10 +1,20 @@
 body {
     background: #424242;
-    margin: 0
+    margin: 0;
+}
+
+html.noscroll {
+    position: fixed;
+    overflow-y: scroll;
+    width: 100%;
+}
+
+div#site-nav {
+    background-color: gray;
 }
 
 div#site-nav>ul>li>a:link {
-    color: blue;
+    color: white;
     margin-left: 5px;
     margin-right: 5px;
     font-weight: bold;
@@ -29,9 +39,14 @@ div#site-nav>ul>li>i.right {
     -webkit-transform: rotate(-45deg);
 }
 
+#mind-map-content {
+    overflow: hidden;
+}
+
 .mindmap-svg {
     height: 500px;
-    width: 600px
+    width: 100%;
+    margin-top: -30px;
 }
 
 .mindmap-svg:focus {

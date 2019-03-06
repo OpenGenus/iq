@@ -1,10 +1,16 @@
 // window.SCRAPING_KEY = "dk4qmwuz";
 
 var js = JSON.parse(data);
+var map_scale = 1;
+var min_scale = 0.3;
+var max_scale = 5;
 
-html = '<svg class="mindmap-svg" viewBox="-356.80451500765685 -486.5010822596126 637.1347523470067 551.1287262462758" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">';
+var translate_x = 0;
+var translate_y = 0;
 
-html += '<g id="mindmap-subnodes"></g><g></g><g>';
+//html = '<svg class="mindmap-svg" viewBox="-356.8045150076568 -486.5010822596126 637.1347523470067 551.1287262462758" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); background: white;">';
+
+html = '<g id="mindmap-subnodes"></g><g></g><g>';
 
 var dict = {};
 for (i = 0; i < js['nodes'].length; i++) {
@@ -36,7 +42,7 @@ for (i = 0; i < js['connections'].length; i++) {
 
 html += '</g>';
 
-content_div = document.getElementById('mind-map-content');
+content_div = document.getElementById('mindmap-svg');
 content_div.innerHTML = html;
 
 nav_div = document.getElementById('site-nav');
