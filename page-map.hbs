@@ -101,7 +101,7 @@ into the {body} of the default.hbs template --}}
     });
 </script>
 
-<script>
+{{!-- <script>
     all_nodes = document.getElementsByClassName("mindmap-svg")[0].getElementsByTagName("g")[2].getElementsByTagName("foreignObject");
     function selectNode(node) {
         symbol = '➡️';
@@ -112,7 +112,8 @@ into the {body} of the default.hbs template --}}
             }
         }
         node.innerText = symbol + node.innerText;
+        window.open(node.href, "_self");
     }
-</script>
+</script> --}}
 
 {{/contentFor}}
