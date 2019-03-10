@@ -101,4 +101,18 @@ into the {body} of the default.hbs template --}}
     });
 </script>
 
+<script>
+    all_nodes = document.getElementsByClassName("mindmap-svg")[0].getElementsByTagName("g")[2].getElementsByTagName("foreignObject");
+    function selectNode(node) {
+        symbol = '➡️';
+        for (i = 0; i < all_nodes.length; i++) {
+            if (all_nodes[i].getElementsByTagName('a')[0].innerText.includes(symbol)) {
+                str = all_nodes[i].getElementsByTagName('a')[0].innerText.replace(symbol, '');
+                all_nodes[i].getElementsByTagName('a')[0].innerText = str;
+            }
+        }
+        node.innerText = symbol + node.innerText;
+    }
+</script>
+
 {{/contentFor}}
