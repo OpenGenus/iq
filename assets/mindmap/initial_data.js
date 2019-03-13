@@ -8,6 +8,8 @@ var max_scale = 5;
 var translate_x = 0;
 var translate_y = 0;
 
+var node_url = {};
+
 //html = '<svg class="mindmap-svg" viewBox="-356.8045150076568 -486.5010822596126 637.1347523470067 551.1287262462758" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); background: white;">';
 
 html = '<g id="mindmap-subnodes"></g><g></g><g>';
@@ -22,8 +24,11 @@ for (i = 0; i < js['nodes'].length; i++) {
     width = curr_node['width'];
     height = curr_node['height'];
     node_html = curr_node['html'];
+    selector = curr_node['selector'];
+    node_html = node_html.replace(/#/g, selector);
     html += `<foreignobject class="mindmap-node" id="${id}" width="${width}" height="${height}" 
-    x="${x}" y="${y}">${node_html}<title></title> </foreignobject>`;
+    x="${x}" y="${y}" style="z-index: 99">${node_html}<title></title> </foreignobject>`;
+    node_url[id] = selector;
 }
 
 html += '</g><g>';
@@ -37,7 +42,7 @@ for (i = 0; i < js['connections'].length; i++) {
     target_x = dict[target][0] + 100;
     target_y = dict[target][1] + 56;
 
-    html += `<path class="mindmap-connection" d="M ${source_x} ${source_y} Q ${source_x} ${source_y} ,${target_x} ${target_y}"> </path>`;
+    html += `<path class="mindmap-connection" d="M ${source_x} ${source_y} Q ${source_x} ${source_y} ,${target_x} ${target_y}" style="z-index: 1"> </path>`;
 }
 
 html += '</g>';

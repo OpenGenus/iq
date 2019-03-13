@@ -5,7 +5,7 @@
 <link rel="shortcut icon" href="https://dotamania.herokuapp.com/favicon.ico">
 <link rel="stylesheet" href="{{asset "mindmap/content/slick.min.css"}}">
 <link rel="stylesheet" href="{{asset "mindmap/ontent/slick-theme.min.css"}}">
-<link rel=" stylesheet" href="{{asset "mindmap/content/main.01f2ceab.css"}}">
+<link rel="stylesheet" href="{{asset "mindmap/content/main.01f2ceab.css"}}">
 
 {{!< default_map}}
 
@@ -38,7 +38,7 @@ into the {body} of the default.hbs template --}}
 {{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
 {{#contentFor "scripts"}}
 
-<script type='text/javascript' src="{{asset "mindmap/map.js"}}"></script>
+<script type='text/javascript' src="{{asset "mindmap/cs-map.js"}}"></script>
 <script type='text/javascript' src="{{asset "mindmap/initial_data.js"}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
 <script>
@@ -107,20 +107,11 @@ into the {body} of the default.hbs template --}}
         this.addEventListener('click', function (e) {
             e.preventDefault();
         });
-        symbol = '➡️';
-        for (i = 0; i < all_nodes.length; i++) {
-            if (all_nodes[i].getElementsByTagName('a')[0].innerText.includes(symbol)) {
-                str = all_nodes[i].getElementsByTagName('a')[0].innerText.replace(symbol, '');
-                all_nodes[i].getElementsByTagName('a')[0].innerText = str;
-            }
-        }
-        node.innerText = symbol + node.innerText;
-        if (node.href.includes("tag")) {
-            console.log('tag');
-            window.open(node.href, "_blank");
+        url = node_url[node];
+        if (url.includes("tag")) {
+            window.open(url, "_blank");
         } else {
-            console.log('no tag');
-            window.open(node.href, "_self");
+            window.open(url, "_self");
         }
     }
 </script>
