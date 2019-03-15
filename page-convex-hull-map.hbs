@@ -5,7 +5,7 @@
 <link rel="shortcut icon" href="https://dotamania.herokuapp.com/favicon.ico">
 <link rel="stylesheet" href="{{asset "mindmap/content/slick.min.css"}}">
 <link rel="stylesheet" href="{{asset "mindmap/ontent/slick-theme.min.css"}}">
-<link rel=" stylesheet" href="{{asset "mindmap/content/main.01f2ceab.css"}}">
+<link rel="stylesheet" href="{{asset "mindmap/content/main.01f2ceab.css"}}">
 
 {{!< default_map}}
 
@@ -25,8 +25,7 @@ into the {body} of the default.hbs template --}}
 {{#post}}
 
 <div id='site-nav'></div>
-<svg class="mindmap-svg" id="mindmap-svg"
-    viewBox="-336.80451500765685 -486.5010822596126 637.1347523470067 551.1287262462758"
+<svg class="mindmap-svg" id="mindmap-svg" viewBox="-116 -556 637 551"
     style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); background: gray;">
 </svg>
 
@@ -38,7 +37,7 @@ into the {body} of the default.hbs template --}}
 {{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
 {{#contentFor "scripts"}}
 
-<script type='text/javascript' src="{{asset "mindmap/map.js"}}"></script>
+<script type='text/javascript' src="{{asset "mindmap/convex-hull-map.js"}}"></script>
 <script type='text/javascript' src="{{asset "mindmap/initial_data.js"}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
 <script>
@@ -99,6 +98,21 @@ into the {body} of the default.hbs template --}}
             }
         });
     });
+</script>
+
+<script>
+    all_nodes = document.getElementsByClassName("mindmap-svg")[0].getElementsByTagName("g")[2].getElementsByTagName("foreignObject");
+    function selectNode(node) {
+        this.addEventListener('click', function (e) {
+            e.preventDefault();
+        });
+        url = node_url[node];
+        if (url.includes("tag")) {
+            window.open(url, "_blank");
+        } else {
+            window.open(url, "_self");
+        }
+    }
 </script>
 
 {{/contentFor}}
