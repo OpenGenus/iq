@@ -20,6 +20,7 @@ into the {body} of the default.hbs template --}}
 
       <header class="post-full-header">
         <h1 class="post-full-title" style="color:#292929; font-size:30px ; ">{{title}}</h1>
+        <div id="global_message" style="background: rgb(181, 222, 250); font-color: #a0a1a1"></div>
         <p style="display: inline-block; font-size: 75%">Share this:</p>
         <h4 style="display: inline-block"><span>
 
@@ -289,6 +290,7 @@ into the {body} of the default.hbs template --}}
 
 {{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
 {{#contentFor "scripts"}}
+<script type="text/javascript" src="{{asset "js/message.js"}}"></script>
 <script type="text/javascript" src="{{asset "js/lightbox/lightbox.js"}}"></script>
 <script>
 
@@ -385,6 +387,13 @@ into the {body} of the default.hbs template --}}
   });
 
   $(document).ready(function () {
+    var msg_box = document.getElementById('global_message');
+    var text = msg['text'];
+    var link = msg['link'];
+    var html = `<a href="${link}">${text}</a>`;
+    console.log(html);
+    msg_box.innerHTML = html;
+
     var taglist_height = $('#taglist').height();
     var tag_height = $('#tag_element').height();
     var q_message = document.createElement('h6');
@@ -508,6 +517,4 @@ into the {body} of the default.hbs template --}}
   }
 
 </script>
-
-
 {{/contentFor}}
