@@ -20,7 +20,10 @@ into the {body} of the default.hbs template --}}
 
       <header class="post-full-header">
         <h1 class="post-full-title" style="color:#292929; font-size:30px ; ">{{title}}</h1>
-        <div id="global_message" style="background: rgb(181, 222, 250); font-color: #a0a1a1"></div>
+        <div id="global_message" style="background: rgb(181, 222, 250);padding-top:20px;padding-bottom:20px;">
+          <a id='global_message_link' style="font-color: #a0a1a1; "></a>
+        </div>
+        <br>
         <p style="display: inline-block; font-size: 75%">Share this:</p>
         <h4 style="display: inline-block"><span>
 
@@ -387,12 +390,17 @@ into the {body} of the default.hbs template --}}
   });
 
   $(document).ready(function () {
-    var msg_box = document.getElementById('global_message');
+    num = Math.floor(Math.random() * msg_contents['algorithm'].length); // later change algorithm to tag names
+    msg = msg_contents['algorithm'][num];
     var text = msg['text'];
     var link = msg['link'];
-    var html = `<a href="${link}">${text}</a>`;
-    console.log(html);
-    msg_box.innerHTML = html;
+    var msg_box = document.getElementById('global_message');
+    var a = document.getElementById('global_message_link');
+    a.href = link;
+    a.innerHTML = text;
+    msg_box.onclick = function () {
+      window.open(link, "_self");
+    };
 
     var taglist_height = $('#taglist').height();
     var tag_height = $('#tag_element').height();
