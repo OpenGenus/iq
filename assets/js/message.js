@@ -1,4 +1,5 @@
 var msg_contents = {
+    "display": "1",
     "announce": "0",
     "global": [{
         "text": "Learn how Freivalds’ algorithm verifies matrix multiplication faster than doing matrix multiplication 💪.",

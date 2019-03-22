@@ -11,6 +11,11 @@ into the {body} of the default.hbs template --}}
 <script type="text/javascript" src="{{asset "js/message.js"}}"></script>
 <script type="text/javascript">
   function generateMSG(tag) {
+    if (msg_contents['display'] == 0) {
+      var elem = document.querySelector('#global_message');
+      elem.style.display = 'none';
+      return;
+    }
     if (msg_contents['announce'] == 0) {
       if (tag in msg_contents) {
         msg = msg_contents[tag];
@@ -29,7 +34,7 @@ into the {body} of the default.hbs template --}}
     a.href = link;
     a.innerHTML = text;
     msg_box.onclick = function () {
-      window.open(link, "_self");
+      window.open(link, "_blank");
     };
   }
 </script>
@@ -43,8 +48,9 @@ into the {body} of the default.hbs template --}}
 
       <header class="post-full-header">
         <h1 class="post-full-title" style="color:#292929; font-size:30px ; ">{{title}}</h1>
-        <div id="global_message" style="background: rgb(181, 222, 250);padding-top:20px;padding-bottom:20px;">
-          <a id='global_message_link' style="font-color: #a0a1a1; "></a>
+        <div id="global_message"
+          style="cursor:pointer; background:rgb(181, 222, 250); padding-top:20px; padding-bottom:20px;">
+          <a id='global_message_link' target="_blank" style="font-color: #a0a1a1; "></a>
           {{#if tags}}
           <p id="hidden" hidden>{{primary_tag.name}}</p>
           <script>generateMSG(document.getElementById('hidden').innerText);</script>
