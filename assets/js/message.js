@@ -19,7 +19,7 @@ var msg_contents = {
         "text": "Learn how comb sort improves bubble sort 💪.",
         "link": "https://discourse.opengenus.org/t/comb-sort-algorithm/2274"
     }],
-    "data-structure": [{
+    "data structure": [{
         "text": "See how Van Emde Boas tree performs operations in O(log log N) time complexity 💪.",
         "link": "https://discourse.opengenus.org/t/van-emde-boas-tree/2216",
     }, {
