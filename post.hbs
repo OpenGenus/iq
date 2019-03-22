@@ -8,8 +8,27 @@ into the {body} of the default.hbs template --}}
     {{> "site-nav"}}
   </div>
 </header>
-
-
+<script type="text/javascript" src="{{asset "js/message.js"}}"></script>
+<script type="text/javascript">
+  function generateMSG(tag) {
+    if (tag in msg_contents) {
+      msg = msg_contents[tag];
+    } else {
+      msg = msg_contents['message'];
+    }
+    num = Math.floor(Math.random() * msg.length);
+    msg = msg[num];
+    var text = msg['text'];
+    var link = msg['link'];
+    var msg_box = document.getElementById('global_message');
+    var a = document.getElementById('global_message_link');
+    a.href = link;
+    a.innerHTML = text;
+    msg_box.onclick = function () {
+      window.open(link, "_self");
+    };
+  }
+</script>
 {{!-- Everything inside the #post tags pulls data from the post --}}
 {{#post}}
 
@@ -22,6 +41,12 @@ into the {body} of the default.hbs template --}}
         <h1 class="post-full-title" style="color:#292929; font-size:30px ; ">{{title}}</h1>
         <div id="global_message" style="background: rgb(181, 222, 250);padding-top:20px;padding-bottom:20px;">
           <a id='global_message_link' style="font-color: #a0a1a1; "></a>
+          {{#if tags}}
+          <p id="hidden" hidden>{{primary_tag.name}}</p>
+          <script>generateMSG(document.getElementById('hidden').innerText);</script>
+          {{else}}
+          <script>generateMSG('message');</script>
+          {{/if}}
         </div>
         <br>
         <p style="display: inline-block; font-size: 75%">Share this:</p>
@@ -293,7 +318,6 @@ into the {body} of the default.hbs template --}}
 
 {{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
 {{#contentFor "scripts"}}
-<script type="text/javascript" src="{{asset "js/message.js"}}"></script>
 <script type="text/javascript" src="{{asset "js/lightbox/lightbox.js"}}"></script>
 <script>
 
@@ -372,8 +396,6 @@ into the {body} of the default.hbs template --}}
   })();
 </script>
 
-
-
 {{!-show/hide tags   if they excceed one line--}}
 <script DOCTYPE="text/javascript">
 
@@ -390,17 +412,6 @@ into the {body} of the default.hbs template --}}
   });
 
   $(document).ready(function () {
-    num = Math.floor(Math.random() * msg_contents['algorithm'].length); // later change algorithm to tag names
-    msg = msg_contents['algorithm'][num];
-    var text = msg['text'];
-    var link = msg['link'];
-    var msg_box = document.getElementById('global_message');
-    var a = document.getElementById('global_message_link');
-    a.href = link;
-    a.innerHTML = text;
-    msg_box.onclick = function () {
-      window.open(link, "_self");
-    };
 
     var taglist_height = $('#taglist').height();
     var tag_height = $('#tag_element').height();
