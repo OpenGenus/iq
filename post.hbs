@@ -11,10 +11,14 @@ into the {body} of the default.hbs template --}}
 <script type="text/javascript" src="{{asset "js/message.js"}}"></script>
 <script type="text/javascript">
   function generateMSG(tag) {
-    if (tag in msg_contents) {
-      msg = msg_contents[tag];
+    if (msg_contents['announce'] == 0) {
+      if (tag in msg_contents) {
+        msg = msg_contents[tag];
+      } else {
+        msg = msg_contents['message'];
+      }
     } else {
-      msg = msg_contents['message'];
+      msg = msg_contents['global'];
     }
     num = Math.floor(Math.random() * msg.length);
     msg = msg[num];
