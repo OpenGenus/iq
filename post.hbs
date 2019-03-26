@@ -445,6 +445,18 @@ into the {body} of the default.hbs template --}}
       $("#more").show();
     });
 
+    var questions = document.getElementById("question_container").getElementsByClassName("question");
+    // last question to show
+    var show = 0;
+
+    for (i = 0; i < questions.length; i++) {
+      if (i >= 1) {
+        questions[i].style.display = 'none';
+      }
+      console.log($(questions[i]))
+      $(questions[i]).children("#progress").text(`Question ${i + 1}/${questions.length}`);
+    }
+
     //Add icon and colors to question answers
     //click function will be shown if the question is answered correctly
     $('.correct_option').click(function () {
@@ -474,6 +486,8 @@ into the {body} of the default.hbs template --}}
 
       }
       $(this).attr('disabled', 'disabled');
+      show += 1;
+      questions[show].style.display = 'block';
     });
 
 
