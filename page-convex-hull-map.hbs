@@ -107,7 +107,7 @@ into the {body} of the default.hbs template --}}
             e.preventDefault();
         });
         url = node_url[node];
-        if (url.includes("tag")) {
+        if (!url.includes("map")) {
             window.open(url, "_blank");
         } else {
             window.open(url, "_self");
