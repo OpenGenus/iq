@@ -446,7 +446,30 @@ into the {body} of the default.hbs template --}}
       $("#more").show();
     });
 
-    var questions = document.getElementById("question_container").getElementsByClassName("question");
+    var questions = document.getElementsByClassName("container");
+
+    for (i = 0; i < questions.length; i++) {
+      var locked_msg_div = document.createElement('div');
+      locked_msg_div.id = 'locked_msg';
+      locked_msg_div.setAttribute("style", "text-align: center; font-weight: bold");
+      var hidden_div = document.createElement('div');
+      hidden_div.id = 'hidden';
+      hidden_div.setAttribute("style", "display: none");
+
+      while (questions[i].childNodes.length > 0) {
+        hidden_div.appendChild(questions[i].childNodes[0]);
+      }
+
+      progress_div = document.createElement('div');
+      progress_div.id = 'progress';
+      progress_div.setAttribute('style', 'text-align: right');
+
+      hidden_div.appendChild(progress_div);
+
+      questions[i].appendChild(locked_msg_div);
+      questions[i].appendChild(hidden_div);
+    }
+
     // last question to show
     var show = 0;
     var attemps = 0;
