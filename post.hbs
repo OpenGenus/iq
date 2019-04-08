@@ -526,7 +526,7 @@ into the {body} of the default.hbs template --}}
 
         $(this).prepend(icon);
         attemps += 1;
-        q_message.innerHTML = (`No worries, this answer is wrong, you must try again. (${attemps} attemps)`);
+        q_message.innerHTML = (`No worries, this answer is wrong, you must try again. (${attemps} attempts)`);
         q_message.classList.add("question_message");
         q_message.style.color = "coral";
         $(this).parents(':eq(0)').prepend(q_message);
