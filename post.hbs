@@ -2,7 +2,9 @@
 
 {{!-- The tag above means: insert everything in this file
 into the {body} of the default.hbs template --}}
+{{!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> --}}
 
+</default>
 <header class="site-header outer">
   <div class="inner">
     {{> "site-nav"}}
@@ -38,13 +40,34 @@ into the {body} of the default.hbs template --}}
     };
   }
 </script>
+<script>
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+  }
+
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+  }
+</script>
 {{!-- Everything inside the #post tags pulls data from the post --}}
 {{#post}}
 
 <main id="site-main" class="site-main outer" role="main">
   <div class="inner">
+    <div class="sidebar" style="width:25%;right:0;">
+      <h3 class="sidebar-title-item">Related Topics</h3>
+      <ul>
+        {{#if primary_tag}}
+        {{#get "posts" filter="tags:{{primary_tag.name}}" limit="4"}}
+        {{#foreach posts}}
+        <a href="{{url}}" class="sidebar-item">{{title}}</a>
+        {{/foreach}}
+        {{/get}}
+        {{/if}}
+      </ul>
+    </div>
 
-    <article class="post-full {{post_class}} {{#unless feature_image}}no-image{{/unless}}">
+    <div class="post-full {{post_class}} {{#unless feature_image}}no-image{{/unless}}" style="margin-right:25%;">
 
       <header class="post-full-header">
         <h1 class="post-full-title" style="color:#292929; font-size:30px ; ">{{title}}</h1>
@@ -75,51 +98,15 @@ into the {body} of the default.hbs template --}}
               <div data-network="googleplus" class="st-custom-button fa fa-google-plus-square"></div>
             </a>
           </span></h4>
-
-
-        {{!--       <div class="header_social_tab">
-                <!-- Twitter-->
-              <a class="social_media_header_links" style="background: #00aced;" href="https://twitter.com/share?text=You will love this article on {{encode title}}&amp;url={{url absolute="true"}}"
-                  onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
-                  <i class="fa fa-twitter" style="transform:scale(1.3);"></i>
-              </a>
-                  <!-- Facebook-->
-              <a class="social_media_header_links" style="background: #3b5998;" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
-                  onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
-                  <i class="fa fa-facebook" style="transform:scale(1.3);"></i>
-              </a>
-                <!--linkedin-->
-                <a class="social_media_header_links" style="background: #0077b5;" href="https://www.linkedin.com/shareArticle?mini=true&url={{url absolute="true"}}&title={{encode title}}"
-                    onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
-                    <i class="fa fa-linkedin" style="transform:scale(1.4);"></i>
-                </a>
-                  <!-- googleplus-->
-                <a class="social_media_header_links " style="background: #dd4b39;" href="https://plus.google.com/share?url={{url absolute="true"}}"
-                    onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
-                    <i class="fa fa-google-plus header_social_icon " style="transform:scale(1.4);"></i>
-                </a>
-
-              </div> --}}
-
-
         {{!--  taglist : display the list of tags  --}}
         <div class="upper_taglist">
           <h4 id="text" class="less">
-
             <div id="taglist">
-
-
               {{#if tags}}
-
               {{#foreach tags}}
-
               <a target="_blank" href="{{url}}" title="{{name}}" class="tag_item">{{name}}</a>
-
               {{/foreach}}
-
               {{/if}}
-
-
             </div>
           </h4>
         </div>
@@ -128,125 +115,106 @@ into the {body} of the default.hbs template --}}
         <button id="more" class="more-tags-button">More</button>
         <button id="less" class="more-tags-button">Less</button>
 
-        {{!--  taglist --}}
-
       </header>
 
-      <!--tabshead-->
-      <!--
-            <div class="table_of_contents">
-            <a href="#test1" class="in_page_link">Iterate-Down-a-List</a>
-            <a href="#test2" class="in_page_link">Iterate-Down-a-List</a>
-            <a href="#test2" class="in_page_link">this link will promp the user to the second heading</a>
-            <a href="#test2" class="in_page_link">this link will promp the user to the second heading</a>
-            <a href="#test2" class="in_page_link">this link will promp the user to the second heading</a>
-            <a href="#test2" class="in_page_link">this link will promp the user to the second heading</a>
-            </div>
--->
       <button id="scrollBtn" class="fa fa-angle-up" title="Go to top"></button>
 
       <section class="post-full-content">
-
         {{content}}
       </section>
-
-
-
-
-      <!-- Discourse forum -->
-
-  </div>
-  <!-- shuffle button -->
-  {{!-- Email subscribe form at the bottom of the page --}}
-  {{#if @labs.subscribers}}
-  <section class="subscribe-form">
-    <h3 class="subscribe-form-title">Subscribe to {{@blog.title}}</h3>
-    <p>Get the latest posts delivered right to your inbox</p>
-    {{subscribe_form placeholder="youremail@example.com"}}
-  </section>
-  {{/if}}
-
-  <footer>
-    {{!-- Everything inside the #author tags pulls data from the author --}}
-    <div class="post-full-footer">
-      {{#author}}
-
-      <section class="author-card">
-        {{#if profile_image}}
-        <img class="author-profile-image" src="{{profile_image}}" alt="{{name}}" />
-        {{/if}}
-
-        <section class="author-card-content">
-          <h4 class="author-card-name"><a href="{{url}}">{{name}}</a></h4>
-          {{#if bio}}
-          <p>{{bio}}</p>
-          {{else}}
-          <p>Read <a href="{{url}}">more posts</a> by this author.</p>
-          {{/if}}
-        </section>
-
-
-
-      </section>
-
-      <div class="post-full-footer-right">
-        <a class="author-card-button" href="{{url}}">Read More</a>
-      </div>
-
-
-
-      {{/author}}
-
     </div>
-    {{!-- Displaying secondary authors --}}
-    {{#if authors from="2"}}
-    <div class="Authors_list">
-      {{#foreach authors from="2"}}
 
-      <a href="{{url}}" title="{{name}}" class="author author-{{id}} {{slug}}">
-        <div class="Authors_tag_item " href="{{url}}" title="{{name}}">
-          {{#if profile_image}}
-          <img class="co-author-profile-image" src="{{profile_image}}" alt="{{name}}" />
-          {{/if}}
-          {{name}}
-        </div>
-      </a>
-
-      {{/foreach}}
-    </div>
+    <!-- shuffle button -->
+    {{!-- Email subscribe form at the bottom of the page --}}
+    {{#if @labs.subscribers}}
+    <section class="subscribe-form">
+      <h3 class="subscribe-form-title">Subscribe to {{@blog.title}}</h3>
+      <p>Get the latest posts delivered right to your inbox</p>
+      {{subscribe_form placeholder="youremail@example.com"}}
+    </section>
     {{/if}}
 
+    <footer>
+      {{!-- Everything inside the #author tags pulls data from the author --}}
+      <div class="post-full-footer">
+        {{#author}}
 
-    {{!-- footer list of tags --}}
+        <section class="author-card">
+          {{#if profile_image}}
+          <img class="author-profile-image" src="{{profile_image}}" alt="{{name}}" />
+          {{/if}}
 
-    <h4>
-      <div class="taglabel">
+          <section class="author-card-content">
+            <h4 class="author-card-name"><a href="{{url}}">{{name}}</a></h4>
+            {{#if bio}}
+            <p>{{bio}}</p>
+            {{else}}
+            <p>Read <a href="{{url}}">more posts</a> by this author.</p>
+            {{/if}}
+          </section>
 
-        <h4><i class="fa fa-tag"></i> Tags</h4>
+
+
+        </section>
+
+        <div class="post-full-footer-right">
+          <a class="author-card-button" href="{{url}}">Read More</a>
+        </div>
+
+
+
+        {{/author}}
+
       </div>
-      <div class="taglist">
-        {{#if tags}}
+      {{!-- Displaying secondary authors --}}
+      {{#if authors from="2"}}
+      <div class="Authors_list">
+        {{#foreach authors from="2"}}
 
-        {{#foreach tags}}
-        <a target="_blank" href="{{url}}" title="{{name}}" class="tag_item">{{name}}</a>
+        <a href="{{url}}" title="{{name}}" class="author author-{{id}} {{slug}}">
+          <div class="Authors_tag_item " href="{{url}}" title="{{name}}">
+            {{#if profile_image}}
+            <img class="co-author-profile-image" src="{{profile_image}}" alt="{{name}}" />
+            {{/if}}
+            {{name}}
+          </div>
+        </a>
+
         {{/foreach}}
-
-        {{/if}}
       </div>
-      </li>
-    </h4>
+      {{/if}}
 
 
-  </footer>
+      {{!-- footer list of tags --}}
+
+      <h4>
+        <div class="taglabel">
+
+          <h4><i class="fa fa-tag"></i> Tags</h4>
+        </div>
+        <div class="taglist">
+          {{#if tags}}
+
+          {{#foreach tags}}
+          <a target="_blank" href="{{url}}" title="{{name}}" class="tag_item">{{name}}</a>
+          {{/foreach}}
+
+          {{/if}}
+        </div>
+        </li>
+      </h4>
+
+
+    </footer>
 
 
 
 
 
-  {{!-- Comments --}}
-  <div id='discourse-comments'></div>
+    {{!-- Comments --}}
+    <div id='discourse-comments'></div>
 
-  {{!--
+    {{!--
 
             If you use Disqus comments, just uncomment this block.
             The only thing you need to change is "test-apkdzgmqhj" - which
@@ -269,7 +237,7 @@ into the {body} of the default.hbs template --}}
             </section>
             --}}
 
-  </article>
+  </div>
 
   </div>
 </main>
@@ -585,4 +553,22 @@ into the {body} of the default.hbs template --}}
   }
 
 </script>
+
+<script>
+  var that = this;
+
+  $.fn.followTo = function (pos) {
+    var div = this
+    $(that).scroll(function (e) {
+      if ($(that).scrollTop() > pos) {
+        div.css({ position: 'absolute', top: pos });
+      } else {
+        div.css({ position: 'fixed', top: 64 });
+      }
+    });
+  };
+
+  $('.sidebar').followTo(600);
+</script>
+
 {{/contentFor}}
