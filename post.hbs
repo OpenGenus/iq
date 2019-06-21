@@ -58,11 +58,13 @@ into the {body} of the default.hbs template --}}
       <h3 class="sidebar-title-item">Related Topics</h3>
       <ul>
         {{#if primary_tag}}
-        {{#get "posts" filter="tags:{{primary_tag.name}}" limit="4"}}
+        {{#get "posts" filter="tags:{{primary_tag.name}}+id:-{{id}}" limit="4"}}
         {{#foreach posts}}
         <a href="{{url}}" class="sidebar-item">{{title}}</a>
         {{/foreach}}
         {{/get}}
+        {{else}}
+        None
         {{/if}}
       </ul>
     </div>
