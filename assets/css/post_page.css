@@ -159,6 +159,78 @@
 }
 
 
+/* CSS code for the sidebar menu */
+#Sidebar_Button {
+  align-content: center;
+  background-color: #351ded;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 50%;
+  height: 84px;
+  padding-top: 8px;
+  transform: scale(0.7);
+  outline: none;
+}
+
+#Sidebar_Button:hover {
+  transform: scale(0.8);
+}
+
+#Sidebar_Button_div {
+  position: fixed;
+  top: 80px;
+  z-index: 9999;
+  right: -5px;
+  margin-bottom: 30px;
+  margin-right: 20px;
+}
+
+.sidebar {
+  display: none;
+  position: fixed;
+  border-radius: 5px;
+  z-index: 999;
+  padding: 0px;
+  padding-top: -5px;
+  background-color: white;
+  top: 150px;
+  right: 20px;
+  width: 200px;
+  height: 280px;
+  font-size: 18px;
+  color: black;
+  text-align: center;
+  border: thin solid black;
+}
+
+.sidebar-title-item,
+.sidebar-item {
+  width: 100%;
+  display: block;
+  text-align: left;
+  border: none;
+  white-space: normal;
+  float: none;
+  outline: 0;
+  padding-left: 10px;
+}
+
+.sidebar-title-item {
+  text-align: left;
+  padding-bottom: 8px;
+  padding-left: 4px;
+}
+
+.sidebar-item:link {
+  color: lightblue;
+}
+
+.sidebar-item:visited {
+  color: purple;
+}
+
+/* End of sidebar CSS */
+
 /* CSS code the the Discourse popup message */
 .Discourse_button {
   align-content: center;
@@ -429,42 +501,4 @@
   .post_full_title {
     font-size: 2.9rem;
   }
-}
-
-
-.sidebar {
-  width: 200px;
-  background-color: #fff;
-  position: fixed;
-  z-index: 1;
-  overflow: auto;
-  border-left: thin solid black;
-  border-top: thin solid black;
-  border-bottom: thin solid black;
-}
-
-.sidebar-title-item,
-.sidebar-item {
-  width: 100%;
-  display: block;
-  text-align: left;
-  border: none;
-  white-space: normal;
-  float: none;
-  outline: 0;
-  padding-left: 10px;
-}
-
-.sidebar-title-item {
-  text-align: left;
-  padding-bottom: 8px;
-  padding-left: 4px;
-}
-
-.sidebar-item:link {
-  color: lightblue;
-}
-
-.sidebar-item:visited {
-  color: purple;
 }

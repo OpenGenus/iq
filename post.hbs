@@ -54,7 +54,8 @@ into the {body} of the default.hbs template --}}
 
 <main id="site-main" class="site-main outer" role="main">
   <div class="inner">
-    <div class="sidebar" style="width:25%;right:0;">
+
+    <div class="sidebar">
       <h3 class="sidebar-title-item">Related Topics</h3>
       <ul>
         {{#if primary_tag}}
@@ -69,7 +70,7 @@ into the {body} of the default.hbs template --}}
       </ul>
     </div>
 
-    <article class="post-full {{post_class}} {{#unless feature_image}}no-image{{/unless}}" style="margin-right:25%;">
+    <article class="post-full {{post_class}} {{#unless feature_image}}no-image{{/unless}}">
 
       <header class="post-full-header">
         <h1 class="post-full-title" style="color:#292929; font-size:30px ; ">{{title}}</h1>
@@ -77,7 +78,9 @@ into the {body} of the default.hbs template --}}
           style="cursor:pointer; background:rgb(181, 222, 250); padding-top:20px; padding-bottom:20px;">
           <a id='global_message_link' target="_blank" style="font-color: #a0a1a1; "></a>
           {{#if tags}}
-          <p id="hidden" hidden>{{primary_tag.name}}</p>
+          <p id="hidden_tag_name" hidden>{{primary_tag.name}}</p>
+          <p id="hidden_id" hidden>{{id}}</p>
+
           <script>generateMSG(document.getElementById('hidden').innerText);</script>
           {{else}}
           <script>generateMSG('message');</script>
@@ -135,6 +138,8 @@ into the {body} of the default.hbs template --}}
       {{subscribe_form placeholder="youremail@example.com"}}
     </section>
     {{/if}}
+
+
 
     <footer>
       {{!-- Everything inside the #author tags pulls data from the author --}}
@@ -556,9 +561,9 @@ into the {body} of the default.hbs template --}}
 
 </script>
 
+<!--
 <script>
   var that = this;
-
   $.fn.followTo = function (pos) {
     var div = this
     $(that).scroll(function (e) {
@@ -569,8 +574,23 @@ into the {body} of the default.hbs template --}}
       }
     });
   };
-
   $('.sidebar').followTo(600);
+</script>  
+-->
+
+<script>
+  var sidebar_down = false;
+  $(document).ready(function () {
+    $('#Sidebar_button').click(function () {
+      if (sidebar_down == false) {
+        $('.sidebar').slideDown(300);
+        sidebar_down = true;
+      } else {
+        $('.sidebar').slideUp(300);
+        sidebar_down = false;
+      }
+    });
+  })
 </script>
 
 {{/contentFor}}
