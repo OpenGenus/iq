@@ -168,13 +168,9 @@
   border-radius: 50%;
   height: 84px;
   padding-top: 8px;
-  transform: scale(0.7);
   outline: none;
 }
 
-#Sidebar_Button:hover {
-  transform: scale(0.8);
-}
 
 #Sidebar_Button_div {
   position: fixed;
