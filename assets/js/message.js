@@ -2,31 +2,48 @@ var msg_contents = {
     "display": "1",
     "announce": "0",
     "global": [{
-        "text": "Learn how Freivalds’ algorithm verifies matrix multiplication faster than doing matrix multiplication 💪.",
-        "link": "https://discourse.opengenus.org/t/freivalds-algorithm-for-verifying-matrix-multiplication/963",
+        "text": "Join the strongest 💪 computer science community in the World for free.",
+        "link": "https://discourse.opengenus.org/signup",
     }],
     "message": [{
-        "text": "Did you know that you can contribute to OpenGenus IQ as well and become a writer 💪.",
-        "link": "https://discourse.opengenus.org/t/become-a-writer-at-opengenus-iq/843/",
-    }, {
-        "text": "Join our community today and ask us anything 💪.",
-        "link": "https://discourse.opengenus.org/"
-    }],
-    "algorithm": [{
-        "text": "Want to contribute to Algorithms? See this task list and make your first contribution today 💪.",
-        "link": "https://discourse.opengenus.org/t/task-list-algorithms/2052/",
-    }, {
-        "text": "Learn how comb sort improves bubble sort 💪.",
-        "link": "https://discourse.opengenus.org/t/comb-sort-algorithm/2274"
-    }],
-    "data structure": [{
-        "text": "See how Van Emde Boas tree performs operations in O(log log N) time complexity 💪.",
-        "link": "https://discourse.opengenus.org/t/van-emde-boas-tree/2216",
-    }, {
-        "text": "Want to contribute to Data Structure? See this task list and make your first contribution today 💪.",
-        "link": "https://discourse.opengenus.org/t/task-list-data-structures/1898/"
-    }, {
-        "text": "Learn about Y fast trie, the bitwise version of trie 💪.",
-        "link": "https://discourse.opengenus.org/t/y-fast-trie-data-structure/2152"
-    }]
+        "text": "Join an online Internship Program that cares for your growth 🌱",
+        "link": "http://internship.opengenus.org"
+    },
+    {
+        "text": "Algorithmic Problems for your upcoming Coding Interview 💪",
+        "link": "https://www.amazon.com/gp/product/B0868TND68"
+    },
+    {
+        "text": "Learn GREEDY ALGORITHMS 🌸 for your upcoming Coding Interview from Masters",
+        "link": "https://www.amazon.com/gp/product/B0876JFTWY"
+    },
+    {
+        "text": "Master DYNAMIC PROGRAMMING 🧠 for your upcoming Coding Interview",
+        "link": "https://www.amazon.com/gp/product/B087SV4WYJ"
+    },
+    {
+        "text": "Best way to learn STRING ALGORITHMS your upcoming Coding Interview 🌼",
+        "link": "https://www.amazon.com/gp/product/B088FZV5FV"
+    },
+    {
+        "text": "Best BOOK 📖 for Mathematical Algorithms for your upcoming Coding Interview",
+        "link": "https://www.amazon.com/gp/product/B089G56R5H"
+    },
+    {
+        "text": "Graph Algorithms for the day before your coding interview 💪 [MUST READ]",
+        "link": "https://www.amazon.com/gp/product/B089SB5YCX/"
+    },
+    {
+        "text": "Divide and Conquer Algorithms for Multi-dimensional Problems [MUST READ]",
+        "link": "https://www.amazon.com/gp/product/B08B5J7HJ4/"
+    },
+    {
+        "text": "50+ Linux Commands before joining a Company 💪 [MUST READ]",
+        "link": "https://www.amazon.com/gp/product/B08FCYKGZY/"
+    },
+    {
+        "text": "Quick Overview of Basic Data Structures (for revision/ interview) 💪 [MUST READ]",
+        "link": "https://www.amazon.com/gp/product/B08F2TDC7R/"
+    }
+    ]
 }

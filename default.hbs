@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   {{!-- Document Settings --}}
@@ -81,18 +81,6 @@
     <div class="search_page_body">
       <div id="site-search" style="display:none;" class="search_form">
         <input class="typeahead search_form_input" type="text" placeholder="Search" />
-        <!--        <div class="search_noresult_image"><img src="{{asset "images/search-empty.svg"}}">
-               <p>No results found</p>
-             </div>-->
-
-        <!--  <div class="search_page_results">
-
-                    <div href="https://www.google.com" class="search_item_image" style="cursor:pointer;"><img src="{{asset "images/search-image.jpg"}}"></div>
-                    <div class="search_item_text">
-                      <div onclick="window.location='https://google.com';"  class="search_item_title" style="cursor:pointer;">Add Search to Ghost using Twitter Typeahead.js</div>
-                      <div class="search_item_description">Add Search to Ghost using Twitter Typeahead.js</div>
-                  </div>
-                </div>-->
       </div>
 
 
@@ -175,25 +163,8 @@
   <script type="text/javascript" src="{{asset "js/prism.js"}}"></script>
   <script type="text/javascript"
     src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
-  <script type="text/javascript"
-    src="//platform-api.sharethis.com/js/sharethis.js#property=5a8129cbe45fbb001342fed3&product=custom-share-buttons"></script>
   <script>
-  /*
-    document.getElementById('scrollBtn').addEventListener('click', function (event) {
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
-      $('#scrollBtn').hide();
-    });
-
-    $(window).bind('mousewheel', function (event) {
-      if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-        document.getElementById("scrollBtn").style.display = "block";
-      } else {
-        document.getElementById("scrollBtn").style.display = "none";
-      };
-    });
-*/
-
+  
 // ===== Scroll to Top ====
  $(window).scroll(function() {
     if ($(this).scrollTop() >= 50) {        // If page is scrolled more than 50px
