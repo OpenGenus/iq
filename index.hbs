@@ -3,12 +3,7 @@
 into the {body} of the default.hbs template --}}
 
 {{!-- The big featured header, it uses blog cover image as a BG if available --}}
-
-<<<<<<< HEAD
-<header class="site-header outer {{#if @site.cover_image}}" style="background-image: url({{@site.cover_image}}){{else}}no-cover{{/if}}">
-=======
 <header class="site-header outer {{#if @blog.cover_image}}" style="background-image: url({{@blog.cover_image}}){{else}}no-cover{{/if}}">
->>>>>>> 4a658bb4fff508f85bfb7f7d006f9fce12ffbe3b
     <div class="inner">
 
         {{> "site-nav"}}
@@ -17,28 +12,17 @@ into the {body} of the default.hbs template --}}
 
         <!--
             <h1 class="site-title">
-<<<<<<< HEAD
-                {{#if @site.logo}}
-                    <img class="site-logo" src="{{@site.logo}}" alt="{{@site.title}}" />
-                {{else}}
-                    {{@site.title}}
-=======
                 {{#if @blog.logo}}
                     <img class="site-logo" src="{{@blog.logo}}" alt="{{@blog.title}}" />
                 {{else}}
                     {{@blog.title}}
->>>>>>> 4a658bb4fff508f85bfb7f7d006f9fce12ffbe3b
                 {{/if}}
             </h1>
             -->
             <img class="header_image" src="{{asset "images/Logo.svg"}}">
 
           <!--    <h1 style="color:white !important"> OpenGenus IQ </h1>    -->
-<<<<<<< HEAD
-            <p style="color:white !important" class="site-slogan">{{@site.description}}</p>
-=======
             <p style="color:white !important" class="site-slogan">{{@blog.description}}</p>
->>>>>>> 4a658bb4fff508f85bfb7f7d006f9fce12ffbe3b
 
         </div>
     </div>
@@ -48,11 +32,7 @@ into the {body} of the default.hbs template --}}
 
 {{!-- The main content area --}}
 <main id="site-main" class="site-main outer" role="main">
-    <div class="inner">
-<<<<<<< HEAD
-=======
-
->>>>>>> 4a658bb4fff508f85bfb7f7d006f9fce12ffbe3b
+    <div class="inner"
         <div class="post-feed">
             {{#foreach posts}}
 
