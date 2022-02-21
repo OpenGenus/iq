@@ -43,6 +43,15 @@ into the {body} of the default.hbs template --}}
 {{#post}}
 
 <main id="site-main" class="site-main outer" role="main">
+  <div class="main-posts">
+    {{!-- LEFT SIDE BAR --}}
+    {{#if tags}}
+      <div id="left-side-bar" class="left-side-bar">
+          {{> "left-side-bar"}}
+      </div>
+      {{/if}}
+       
+      {{!-- INNER CONTENT --}}
   <div class="inner">
 
     <article class="post-full {{post_class}} {{#unless feature_image}}no-image{{/unless}}">
@@ -108,7 +117,6 @@ into the {body} of the default.hbs template --}}
         {{!--  taglist : display the list of tags  --}}
         <div class="upper_taglist">
           <h4 id="text" class="less">
-
             <div id="taglist">
 
 
@@ -139,20 +147,30 @@ into the {body} of the default.hbs template --}}
 
       <button id="scrollBtn" class="fa fa-angle-up" title="Go to top"></button>
 
+      <div class="post-content">
       <section class="post-full-content">
 
         {{content}}
       </section>
 
+        
+
+      </div>
+
       <!-- Discourse forum -->
 
+  </div>
+  {{!-- RIGHT SIDE BAR --}}
+      <div class="right-side-bar">
+          {{> "right-side-bar"}}
+      </div>
   </div>
 
   <!-- shuffle button -->
   {{!-- Email subscribe form at the bottom of the page --}}
   {{#if @labs.subscribers}}
   <section class="subscribe-form">
-    <h3 class="subscribe-form-title">Subscribe to {{@blog.title}}</h3>
+    <h3 class="subscribe-form-title">Subscribe to {{@site.title}}</h3>
     <p>Get the latest posts delivered right to your inbox</p>
     {{subscribe_form placeholder="youremail@example.com"}}
   </section>
@@ -161,7 +179,7 @@ into the {body} of the default.hbs template --}}
   <footer>
     {{!-- Everything inside the #author tags pulls data from the author --}}
     <div class="post-full-footer">
-      {{#author}}
+      {{#primary_author}}
 
       <section class="author-card">
         {{#if profile_image}}
@@ -187,7 +205,7 @@ into the {body} of the default.hbs template --}}
 
 
 
-      {{/author}}
+      {{/primary_author}}
 
     </div>
     {{!-- Displaying secondary authors --}}
@@ -230,6 +248,8 @@ into the {body} of the default.hbs template --}}
 
 
   </footer>
+
+  <script type="text/javascript" src="{{asset "js/sidebar.js"}}"></script>
 
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <!-- horizontal ad -->
@@ -284,10 +304,10 @@ into the {body} of the default.hbs template --}}
       {{#get "posts" filter="tags:{{primary_tag.slug}}+id:-{{id}}" limit="3" as |related_posts|}}
       {{#if related_posts}}
       <article class="read-next-card" {{#if ../primary_tag.feature_image}}
-        style="background-image: url({{../primary_tag.feature_image}})" {{else}} {{#if @blog.cover_image}}
-        style="background-image: url({{@blog.cover_image}})" {{/if}} {{/if}}>
+        style="background-image: url({{../primary_tag.feature_image}})" {{else}} {{#if @site.cover_image}}
+        style="background-image: url({{@site.cover_image}})" {{/if}} {{/if}}>
         <header class="read-next-card-header">
-          <small class="read-next-card-header-sitetitle">&mdash; {{@blog.title}} &mdash;</small>
+          <small class="read-next-card-header-sitetitle">&mdash; {{@site.title}} &mdash;</small>
           {{#../primary_tag}}
           <h3 class="read-next-card-header-title"><a href="{{url}}">{{name}}</a></h3>
           {{/../primary_tag}}
@@ -560,7 +580,6 @@ into the {body} of the default.hbs template --}}
       questions[c].children[i].style.display = "block";
     }
   }
-
 </script>
 
 <style>
