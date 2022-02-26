@@ -49,7 +49,11 @@ into the {body} of the default.hbs template --}}
       <div id="left-side-bar" class="left-side-bar">
           {{> "left-side-bar"}}
       </div>
-      {{/if}}
+    {{else}}
+      <div id="left-side-bar" class="left-side-bar">
+        {{> "left-side-bar-common"}}
+      </div>
+    {{/if}}
        
       {{!-- INNER CONTENT --}}
   <div class="inner">

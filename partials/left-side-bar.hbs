@@ -1,7 +1,9 @@
 <aside id="left-side-bar-inner" class="left-side-bar-inner">
   {{#foreach tags}}
-    <ul class="left-side-bar-article-content">
-      <li><a target="_blank" href="{{url}}" title="{{name}}">{{name}}</a></li>
-    </ul>
+    {{#get "posts" filter="tags:{{name}}"}}
+      {{#foreach posts}}
+        <li><a target="_blank" href="{{url}}">{{title}}</a></li>
+      {{/foreach}}
+    {{/get}}
   {{/foreach}}
 </aside>
