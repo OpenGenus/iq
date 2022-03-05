@@ -486,7 +486,7 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
 }
 
 /* left-side-bar styling. */
-.side-bar-wrapper {
+.left-side-bar-wrapper {
   position: relative;
   min-width: 180px;
   width: 30%;
@@ -511,7 +511,7 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
   align-items: flex-end;
 }
 
-.side-bar-wrapper .tag-title {
+.left-side-bar-wrapper .tag-title {
   background-color: #000;
   color: #fff;
   font-weight: bold;
@@ -570,7 +570,7 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
 }
 
 @media (max-width: 600px) {
-  .side-bar-wrapper {
+  .left-side-bar-wrapper {
     display: none;
   }
 }
