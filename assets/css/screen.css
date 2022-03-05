@@ -206,7 +206,6 @@ body {
 
 /* 5. Site Navigation
 /* ---------------------------------------------------------- */
-
 .site-nav {
   position: relative;
   z-index: 300;
@@ -387,7 +386,6 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
 
 /* 6. Post Feed
 /* ---------------------------------------------------------- */
-
 .post-feed {
   position: relative;
   display: flex;
@@ -487,30 +485,47 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
   text-transform: uppercase;
 }
 
-/* 6.1 right-side-bar styling. */
+/* left-side-bar styling. */
+.side-bar-wrapper {
+  position: relative;
+  min-width: 180px;
+  width: 30%;
+}
+.left-side-bar {
+  border-right: 1px solid #f2f3f4;
+  height: calc(100vh - 45px);
+  width: 100%;
+  overflow-y: auto;
+}
+.main-wrapper {
+  display: flex;
+}
 .main-posts {
   display: flex;
-  max-width: 1264px;
-  margin: 0 auto;
 }
-
-.left-side-bar {
-  max-width: 164px;
-  width: 100%;
-}
-.left-side-bar-inner {
+.main-posts.fix-bottom .left-side-bar,
+.main-posts.fix-top .left-side-bar {
   position: fixed;
-  width: 164px;
-  overflow-y: scroll;
-  max-height: calc(90vh - 80px);
 }
-.left-side-bar-inner-scroll {
-  position: static;
-  overflow-y: scroll;
+.main-posts.flex-bottom {
+  align-items: flex-end;
 }
 
+.side-bar-wrapper .tag-title {
+  background-color: #000;
+  color: #fff;
+  font-weight: bold;
+  text-transform: capitalize;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+/* right-side-bar styling */
 .right-side-bar {
-  width: 300px;
+  max-width: 300px;
+  width: 100%;
 }
 
 .right-side-bar-article {
@@ -548,15 +563,17 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
   .right-side-bar {
     display: none;
   }
-}
-
-@media (max-width: 600px) {
-  .left-side-bar {
-    display: none;
+  .main-wrapper {
+    position: relative;
+    left: -3vw;
   }
 }
 
-/* end right-side-bar styling */
+@media (max-width: 600px) {
+  .side-bar-wrapper {
+    display: none;
+  }
+}
 
 /* Special Styling for home page grid (below):
 
