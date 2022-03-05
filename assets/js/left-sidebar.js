@@ -9,11 +9,11 @@ window.onscroll = function () {
     .setAttribute(
       "style",
       "display:block;width:" +
-        document.getElementById("side-bar-wrapper").offsetWidth +
+        document.getElementById("left-side-bar-wrapper").offsetWidth +
         "px"
     );
   document.getElementById("left-side-bar").style.width =
-    document.getElementById("side-bar-wrapper").offsetWidth;
+    document.getElementById("left-side-bar-wrapper").offsetWidth;
   //sidebar < main
   if (sidebar.offsetHeight < post_full.offsetHeight) {
     //sidebar < screen - stick to top
