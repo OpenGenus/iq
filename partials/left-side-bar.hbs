@@ -1,4 +1,10 @@
 <aside id="left-side-bar-inner" class="left-side-bar-inner">
+  {{#if tags}}
+    <div class="tag-title">
+      {{primary_tag.name}}
+      tutorial
+    </div>
+  {{/if}}
   {{#foreach tags}}
     {{#get "posts" filter="tags:{{name}}"}}
       {{#foreach posts}}
