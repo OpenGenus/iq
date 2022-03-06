@@ -489,7 +489,7 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
 .left-side-bar-wrapper {
   position: relative;
   min-width: 180px;
-  width: 30%;
+  width: 20%;
 }
 .left-side-bar {
   border-right: 1px solid #f2f3f4;
@@ -500,15 +500,13 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
 .left-side-bar-link a {
   font-size: 14px;
 }
-.main-wrapper {
-  display: flex;
-}
 .main-posts {
   display: flex;
 }
 .main-posts.fix-bottom .left-side-bar,
 .main-posts.fix-top .left-side-bar {
   position: fixed;
+  top: 60px;
 }
 .main-posts.flex-bottom {
   align-items: flex-end;
@@ -526,7 +524,7 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
 }
 
 /* right-side-bar styling */
-.right-side-bar {
+/* .right-side-bar {
   max-width: 300px;
   width: 100%;
 }
@@ -561,12 +559,12 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
 .right-side-bar-article-content a:hover {
   color: #05abe0;
   transition: all ease 0.2s;
-}
+} */
 @media (max-width: 768px) {
-  .right-side-bar {
+  /* .right-side-bar {
     display: none;
-  }
-  .main-wrapper {
+  } */
+  .main-posts {
     position: relative;
     left: -3vw;
   }
@@ -743,7 +741,7 @@ The first (most recent) post in the list is styled to be bigger than the others 
 
 @media (max-width: 1170px) {
   .post-full-content {
-    padding: 2vw 7vw 0;
+    padding: 2vw 5vw 0;
   }
 }
 @media (max-width: 800px) {
