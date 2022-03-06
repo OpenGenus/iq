@@ -43,7 +43,7 @@ into the {body} of the default.hbs template --}}
 {{#post}}
 
 <main id="site-main" class="site-main outer" role="main">
-  <div class="main-wrapper">
+  {{!-- <div class="main-wrapper"> --}}
   <div id="main-posts" class="main-posts">
     {{!-- LEFT SIDE BAR --}}
     <div id="left-side-bar-wrapper" class="left-side-bar-wrapper">
@@ -169,12 +169,12 @@ into the {body} of the default.hbs template --}}
   </div>
   </div>
   {{!-- RIGHT SIDE BAR --}}
-    <div class="right-side-bar-wrapper">
+    {{!-- <div class="right-side-bar-wrapper">
       <div id="right-side-bar" class="right-side-bar">
           {{> "right-side-bar"}}
       </div>
-      </div>
-  </div>
+      </div> --}}
+  {{!-- </div> --}}
 
   <!-- shuffle button -->
   {{!-- Email subscribe form at the bottom of the page --}}
