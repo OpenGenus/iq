@@ -7,7 +7,7 @@
   {{/if}}
   {{#foreach tags}}
     {{#get "posts" filter="tags:{{name}}"}}
-      {{#foreach posts}}
+      {{#foreach posts limit="50"}}
         <li><a target="_blank" href="{{url}}">{{title}}</a></li>
       {{/foreach}}
     {{/get}}
