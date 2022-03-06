@@ -6,7 +6,7 @@
     </div>
   {{/if}}
   {{#foreach tags}}
-    {{#get "posts" filter="tags:{{name}}"}}
+    {{#get "posts" filter="primary_tag:{{slug}}"}}
       {{#foreach posts limit="50"}}
         <li class="left-side-bar-link"><a
             target="_blank"
