@@ -850,8 +850,8 @@ The first (most recent) post in the list is styled to be bigger than the others 
 .post-full-content img,
 .post-full-content video {
   display: block;
-  margin: 1.5em auto;
-  max-width: 500px;
+  margin: 1rem auto;
+  max-width: 700px;
   width: 100%;
 }
 @media (max-width: 1040px) {
