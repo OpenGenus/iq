@@ -497,6 +497,9 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
   width: 100%;
   overflow-y: auto;
 }
+.left-side-bar-link a {
+  font-size: 14px;
+}
 .main-wrapper {
   display: flex;
 }
