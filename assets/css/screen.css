@@ -64,14 +64,14 @@ body {
 /* Full width page blocks */
 .outer {
   position: relative;
-  padding: 0 4vw;
+  padding: 0;
 }
 
 /* Centered content container blocks */
 .inner {
   margin: 0 auto;
   max-width: 1040px;
-  width: 100%;
+  width: 90%;
 }
 
 /* Usage:
@@ -491,14 +491,72 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
   min-width: 180px;
   width: 20%;
 }
+
+.left-side-bar-top {
+  border-right: 1px solid #f2f3f4;
+  width: 100%;
+  transition: all 0.2s ease-in;
+  margin-bottom: 1rem;
+  height: 230px;
+}
+.top-side-bar-links {
+  height: 180px;
+  overflow: auto;
+}
+.top-left #show-all:checked ~ .top-side-bar-links .left-side-bar-link {
+  display: list-item;
+}
+.top-left #show-all ~ label[for="show-all"] {
+  display: none;
+}
+.top-left {
+  position: relative;
+}
+.top-left #show-all {
+  display: none;
+}
+.top-left label[for="show-all"] {
+  position: absolute;
+  box-sizing: border-box;
+  width: 100%;
+  bottom: 0;
+  font-size: 0.75em;
+  text-align: center;
+  line-height: 1em;
+  border: 1px solid #ddd;
+  padding: 0.5em;
+  cursor: pointer;
+  text-transform: uppercase;
+  color: #444;
+}
+.top-left label[for="show-all"]:hover {
+  border: 1px solid #aaa;
+}
+.top-left label[for="show-all"]:active {
+  border: 1px solid #222;
+  background-color: #222;
+  color: #fff;
+}
+
+.second-left {
+  position: relative;
+  z-index: 99;
+}
 .left-side-bar {
   border-right: 1px solid #f2f3f4;
   height: calc(100vh - 45px);
   width: 100%;
   overflow-y: auto;
+  transition: all 0.2s ease-in;
+  background-color: #fff;
 }
 .left-side-bar-link a {
   font-size: 14px;
+}
+.left-side-bar-link a:hover {
+  color: var(--blue);
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
 .main-posts {
   display: flex;
@@ -514,13 +572,12 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
 
 .left-side-bar-wrapper .tag-title {
   background-color: #000;
+  padding: 1rem;
+}
+.side-bar-tag-name {
   color: #fff;
   font-weight: bold;
   text-transform: capitalize;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem 0;
 }
 
 /* right-side-bar styling */
@@ -561,16 +618,32 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
   transition: all ease 0.2s;
 } */
 @media (max-width: 768px) {
-  /* .right-side-bar {
-    display: none;
-  } */
+  .second-left {
+    z-index: 99;
+  }
+  .left-side-bar-top {
+    margin-bottom: 0;
+  }
+  .main-posts.fix-bottom .left-side-bar,
+  .main-posts.fix-top .left-side-bar {
+    position: fixed;
+    top: 38px;
+  }
   .main-posts {
     position: relative;
-    left: -3vw;
   }
 }
 
 @media (max-width: 600px) {
+  .second-left {
+    z-index: 99;
+  }
+  .left-side-bar-top {
+    margin-bottom: 0;
+  }
+  /* .top-left #show-all:not(:checked) ~ .show-links {
+    z-index: 9;
+  } */
   .left-side-bar-wrapper {
     display: none;
   }
@@ -672,8 +745,35 @@ The first (most recent) post in the list is styled to be bigger than the others 
   max-width: 1040px;
   text-align: center;
 }
+@media (max-width: 1170px) {
+  .post-full-header {
+    background-color: mediumblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    margin-left: 3vw;
+  }
+}
+@media (max-width: 800px) {
+  .post-full-header {
+    padding: 2vw 2vw 10vw 2vw;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 2vw;
+  }
+}
 @media (max-width: 500px) {
   .post-full-header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding: 2vw 3vw 10vw;
   }
 }
@@ -701,7 +801,7 @@ The first (most recent) post in the list is styled to be bigger than the others 
   margin: 0 6px 1px;
 }
 
-.post-full-image {
+/* .post-full-image {
   margin: 0 -10vw -165px;
   height: 800px;
   background: var(--lightgrey) center center;
@@ -721,7 +821,7 @@ The first (most recent) post in the list is styled to be bigger than the others 
   .post-full-image {
     height: 400px;
   }
-}
+} */
 
 .post-content {
   width: 100%;
@@ -740,13 +840,33 @@ The first (most recent) post in the list is styled to be bigger than the others 
 }
 
 @media (max-width: 1170px) {
+  .post-content {
+    width: 80%;
+  }
   .post-full-content {
-    padding: 2vw 5vw 0;
+    width: 100%;
+    margin-left: 3vw;
+    padding: 20px 40px 0;
   }
 }
 @media (max-width: 800px) {
+  .post-content {
+    width: 90%;
+  }
   .post-full-content {
+    width: 89%;
+    padding: 20px 40px 0;
+    margin-left: 2vw;
     font-size: 1.4rem;
+  }
+}
+@media (max-width: 500px) {
+  .post-content {
+    width: 100%;
+  }
+  .post-full-content {
+    width: 100%;
+    margin-left: 2vw;
   }
 }
 
@@ -850,15 +970,19 @@ The first (most recent) post in the list is styled to be bigger than the others 
 
 .post-full-content img,
 .post-full-content video {
-  display: block;
-  margin: 1rem auto;
   max-width: 700px;
   width: 100%;
+}
+.post-full-content img {
+  object-fit: contain;
 }
 @media (max-width: 1040px) {
   .post-full-content img,
   .post-full-content video {
     width: 100%;
+  }
+  .post-full-content img {
+    object-fit: contain;
   }
 }
 
