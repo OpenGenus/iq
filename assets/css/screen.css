@@ -501,9 +501,13 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
 }
 .top-side-bar-links {
   height: 180px;
-  overflow: auto;
+  overflow-y: auto;
 }
-.top-left #show-all:checked ~ .top-side-bar-links .left-side-bar-link {
+.left-side-bar-links {
+  overflow-y: auto;
+  height: calc(100vh - 106px);
+}
+/* .top-left #show-all:checked ~ .top-side-bar-links .left-side-bar-link {
   display: list-item;
 }
 .top-left #show-all ~ label[for="show-all"] {
@@ -514,7 +518,7 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
 }
 .top-left #show-all {
   display: none;
-}
+} */
 /* .top-left label[for="show-all"] {
   position: absolute;
   box-sizing: border-box;
@@ -545,7 +549,6 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
 .left-side-bar {
   border-right: 1px solid #f2f3f4;
   height: calc(100vh - 45px);
-  overflow-y: auto;
   transition: all 0.2s ease-in;
   background-color: #fff;
 }
