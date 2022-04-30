@@ -40,6 +40,25 @@ body {
     background-size: cover;
     border-radius: 100%;
 }
+.logo a{
+    text-decoration: none;
+    color: #fff;
+}
+.logo h2{
+    margin: 0;
+    white-space: nowrap;
+}
+
+.nav li h4{
+    margin: 0;
+    white-space: nowrap;
+}
+
+.nav li .vl{
+    border-left: 2px solid #fff;
+    height: 2rem;
+    margin-left: 1rem;
+}
 
 .hidden {
     visibility: hidden;
@@ -71,8 +90,8 @@ body {
 /* Centered content container blocks */
 .inner {
     margin: 0 auto;
-    max-width: 1040px;
-    width: 100%;
+    max-width: 90%;
+    width: 90%;
 }
 
 /* Usage:
@@ -256,21 +275,43 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
     margin: 0 0 0 -12px;
     padding: 0;
     list-style: none;
+    align-items: center;
 }
 
 .nav li {
-    display: block;
-    margin: 0;
     padding: 0;
     text-transform: uppercase;
 }
 
-.nav li a {
+.nav li,
+.nav li a,
+.nav li select {
     display: block;
     margin: 0;
+}
+.nav li a,
+.nav li select {
     padding: 10px 12px;
     color: #fff;
     opacity: 0.8;
+}
+.nav .logo a{
+    opacity: 1;
+}
+.nav li select{
+    padding: 4px 10px;
+    margin: 0px 12px 0px 12px;
+    border: 1px solid #fff;
+    background-color: transparent;
+}
+.nav li select:focus{
+    outline: none;
+    opacity: 1;
+}
+
+.nav li select option{
+    color: #000;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
 .nav li a:hover {
