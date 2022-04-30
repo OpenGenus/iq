@@ -9,9 +9,54 @@
 
 
  <div class="navbar-left">
-        {{#if @blog.navigation}}
-            {{navigation}}
-        {{/if}}
+        <ul class="nav" role="menu">
+    <li class="logo">
+      <a href="/">
+        <h2>OpenGenus IQ </h2>
+      </a>
+    </li>
+    <li>
+      <h4>- Apache ZooKeeper in System Design</h4>
+    </li>
+    <li><div class="vl"></div></li>
+    <li class="nav-random" role="menuitem"><a href="https://iq.opengenus.org/random/">RANDOM</a></li>
+
+    <!-- DROPDOWN MENU -->
+    <li class="nav-home" role="menuitem">
+      <select name="pl" id="pl" onChange="window.open(this.value)">
+        <option value="">CHOOSE AN OPTION</option>
+        <option value="https://discourse.opengenus.org/t/internship-guidelines-at-opengenus/2335/">Join our Internship 🎓</option>
+        <option value="https://www.amazon.com/dp/B08F2TDC7R/">🔊 Data Structures</option>
+        <option value="https://www.amazon.com/dp/B089SB5YCX">Graph Algorithms</option>
+        <option value="https://iq.opengenus.org/one/">One Liner</option>
+      </select>
+    </li>
+
+    <li class="nav-home" role="menuitem">
+      <select name="pl" id="pl">
+        <option value="">CHOOSE AN OPTION</option>
+        <option value="python">PYTHON</option>
+        <option value="java">JAVA</option>
+        <option value="c++">C++</option>
+        <option value="ruby">RUBY</option>
+      </select>
+    </li>
+
+    
+    <li class="nav-join-our-internship-" role="menuitem"><a href="https://discourse.opengenus.org/t/internship-guidelines-at-opengenus/2335/">Join our Internship 🎓</a></li>
+    <li class="nav-100-graph-algorithms" role="menuitem"><a href="https://iq.opengenus.org/list-of-graph-algorithms/">100+ Graph Algorithms</a></li>
+    <li class="nav-100-dp-problems" role="menuitem"><a href="https://iq.opengenus.org/list-of-dynamic-programming-problems/">100+ DP Problems</a></li>
+    <li class="nav-50-linked-list-problems" role="menuitem"><a href="https://iq.opengenus.org/list-of-linked-list-problems/">50+ Linked List Problems</a></li>
+    <li class="nav-50-array-problems" role="menuitem"><a href="https://iq.opengenus.org/list-of-array-problems/">50+ Array Problems</a></li>
+    <li class="nav-one-liner" role="menuitem"><a href="https://iq.opengenus.org/one/">One Liner</a></li>
+    <li class="nav-50-binary-tree-problems" role="menuitem"><a href="https://iq.opengenus.org/list-of-binary-tree-problems/">50+ Binary Tree problems</a></li>
+    <li class="nav-7daysofcode" role="menuitem"><a href="https://www.amazon.com/days-Dynamic-Programming-7daysOfAlgo-Book-ebook/dp/B08GKXDWQW/">#7daysOfCode</a></li>
+    <li class="nav-linux-" role="menuitem"><a href="https://www.amazon.com/dp/B08FCYKGZY/">Linux 💽</a></li>
+    <li class="nav--data-structures" role="menuitem"><a href="https://www.amazon.com/dp/B08F2TDC7R/">🔊 Data Structures</a></li>
+    <li class="nav-graph-algorithms" role="menuitem"><a href="https://www.amazon.com/dp/B089SB5YCX">Graph Algorithms</a></li>
+    <li class="nav-dynamic-programming-" role="menuitem"><a href="https://www.amazon.com/gp/product/B087SV4WYJ/">Dynamic Programming 💑</a></li>
+    <li class="nav-home" role="menuitem"><a href="https://iq.opengenus.org/">Home</a></li>
+</ul>
 
     </div>
 
