@@ -51,7 +51,11 @@ body {
 
 .nav li h4{
     margin: 0;
+    max-width: 30ch;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
 }
 
 .nav li .vl{
