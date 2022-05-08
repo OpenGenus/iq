@@ -51,7 +51,7 @@ body {
 
 .nav li h4{
     margin: 0;
-    max-width: 30ch;
+    max-width: 30h;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -63,6 +63,7 @@ body {
     height: 2rem;
     margin-left: 1rem;
 }
+  
 
 .hidden {
     visibility: hidden;

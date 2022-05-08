@@ -259,6 +259,13 @@ $('#scrollBtn').click(function() {      // When arrow is clicked
   </script>
   {{!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag --}}
   {{ghost_foot}}
+  
+  <script>
+    function handleBurgerMenu(){
+      var element=document.getElementById("burger-menu");
+      element.classList.toggle("active");
+    }
+  </script>
 
 </body>
 

@@ -1,85 +1,72 @@
 <nav class="navbar">
-  <div class="burger_menu">
-    <label for="burgertoggle" >&#9776;</label>
-    <input type="checkbox" id="burgertoggle"/>
-
-  </div>
-
+   <div class="burger_menu">
+      <label for="burgertoggle" onclick="handleBurgerMenu()">&#9776;</label>
+      <input type="checkbox" id="burgertoggle"/>
+   </div>
 
 
+   <div class="navbar-left">
+      {{#if @blog.navigation}}
+      <ul class="nav active" role="menu" id="burger-menu">
+         <li class="logo">
+            <a href="/">
+               <h2>OpenGenus IQ </h2>
+            </a>
+         </li>
+         {{#is "post"}}
+         <li id="blog-title">
+            <h4>- {{post.title}}</h4>
+         </li>
+         {{/is}}
+         <li id="vert-div">
+            <div class="vl"></div>
+         </li>
+         <!-- DROPDOWN MENU -->
+         <li class="nav-home" role="menuitem">
+            <select name="pl" id="pl" onChange="window.open(this.value)">
+               <option value="">CHOOSE AN OPTION</option>
+               <option value="https://iq.opengenus.org/random/">RANDOM</option>
+               <option value="https://discourse.opengenus.org/t/internship-guidelines-at-opengenus/2335/">Join our Internship 🎓</option>
+               <option value="https://www.amazon.com/dp/B08F2TDC7R/">🔊 Data Structures</option>
+               <option value="https://www.amazon.com/dp/B089SB5YCX">Graph Algorithms</option>
+               <option value="https://iq.opengenus.org/one/">One Liner</option>
+               <option value="https://iq.opengenus.org/list-of-graph-algorithms/">100+ Graph Algorithms</option>
+            </select>
+         </li>
+         <li class="nav-home" role="menuitem">
+            <select name="pl" id="pl">
+               <option value="">CHOOSE AN OPTION</option>
+               <option value="https://iq.opengenus.org/list-of-dynamic-programming-problems/">100+ DP Problems</option>
+               <option value="https://iq.opengenus.org/list-of-linked-list-problems/">50+ Linked List Problems</option>
+               <option value="https://iq.opengenus.org/list-of-array-problems/">50+ Array Problems</option>
+               <option value="https://iq.opengenus.org/list-of-binary-tree-problems/">50+ Binary Tree problems</option>
+               <option value="https://www.amazon.com/days-Dynamic-Programming-7daysOfAlgo-Book-ebook/dp/B08GKXDWQW/">#7daysOfCode</option>
+               <option value="https://www.amazon.com/dp/B08FCYKGZY/">Linux 💽</option>
+               <option value="https://www.amazon.com/gp/product/B087SV4WYJ/">Dynamic Programming 💑</option>
+               <option value="https://iq.opengenus.org/">Home</option>
+            </select>
+         </li>
+      </ul>
+      {{/if}}
+   </div>
 
- <div class="navbar-left">
-   {{#if @blog.navigation}}
-        <ul class="nav" role="menu">
-    <li class="logo">
-      <a href="/">
-        <h2>OpenGenus IQ </h2>
-      </a>
-    </li>
-    {{#is "post"}}
-    <li>
-      <h4>- {{post.title}}</h4>
-    </li>
-    {{/is}}
-    <li><div class="vl"></div></li>
-    <li class="nav-random" role="menuitem"><a href="https://iq.opengenus.org/random/">RANDOM</a></li>
 
-    <!-- DROPDOWN MENU -->
-    <li class="nav-home" role="menuitem">
-      <select name="pl" id="pl" onChange="window.open(this.value)">
-        <option value="">CHOOSE AN OPTION</option>
-        <option value="https://discourse.opengenus.org/t/internship-guidelines-at-opengenus/2335/">Join our Internship 🎓</option>
-        <option value="https://www.amazon.com/dp/B08F2TDC7R/">🔊 Data Structures</option>
-        <option value="https://www.amazon.com/dp/B089SB5YCX">Graph Algorithms</option>
-        <option value="https://iq.opengenus.org/one/">One Liner</option>
-      </select>
-    </li>
-
-    <li class="nav-home" role="menuitem">
-      <select name="pl" id="pl">
-        <option value="">CHOOSE AN OPTION</option>
-        <option value="python">PYTHON</option>
-        <option value="java">JAVA</option>
-        <option value="c++">C++</option>
-        <option value="ruby">RUBY</option>
-      </select>
-    </li>
-
-    
-    <li class="nav-join-our-internship-" role="menuitem"><a href="https://discourse.opengenus.org/t/internship-guidelines-at-opengenus/2335/">Join our Internship 🎓</a></li>
-    <li class="nav-100-graph-algorithms" role="menuitem"><a href="https://iq.opengenus.org/list-of-graph-algorithms/">100+ Graph Algorithms</a></li>
-    <li class="nav-100-dp-problems" role="menuitem"><a href="https://iq.opengenus.org/list-of-dynamic-programming-problems/">100+ DP Problems</a></li>
-    <li class="nav-50-linked-list-problems" role="menuitem"><a href="https://iq.opengenus.org/list-of-linked-list-problems/">50+ Linked List Problems</a></li>
-    <li class="nav-50-array-problems" role="menuitem"><a href="https://iq.opengenus.org/list-of-array-problems/">50+ Array Problems</a></li>
-    <li class="nav-one-liner" role="menuitem"><a href="https://iq.opengenus.org/one/">One Liner</a></li>
-    <li class="nav-50-binary-tree-problems" role="menuitem"><a href="https://iq.opengenus.org/list-of-binary-tree-problems/">50+ Binary Tree problems</a></li>
-    <li class="nav-7daysofcode" role="menuitem"><a href="https://www.amazon.com/days-Dynamic-Programming-7daysOfAlgo-Book-ebook/dp/B08GKXDWQW/">#7daysOfCode</a></li>
-    <li class="nav-linux-" role="menuitem"><a href="https://www.amazon.com/dp/B08FCYKGZY/">Linux 💽</a></li>
-    <li class="nav--data-structures" role="menuitem"><a href="https://www.amazon.com/dp/B08F2TDC7R/">🔊 Data Structures</a></li>
-    <li class="nav-graph-algorithms" role="menuitem"><a href="https://www.amazon.com/dp/B089SB5YCX">Graph Algorithms</a></li>
-    <li class="nav-dynamic-programming-" role="menuitem"><a href="https://www.amazon.com/gp/product/B087SV4WYJ/">Dynamic Programming 💑</a></li>
-    <li class="nav-home" role="menuitem"><a href="https://iq.opengenus.org/">Home</a></li>
-</ul>
-{{/if}}
-    </div>
-
-    <div class="navbar-right">
+   <div class="navbar-right">
       <!--  <div class="social-links"> -->
-          <a class="search_button">
-            <i class="fa fa-search search_toggle" style="cursor:pointer;"></i>
-          </a>
-        <!--    {{#if @blog.facebook}}
-                <a class="social-link social-link-fb" href="{{facebook_url @blog.facebook}}" target="_blank" rel="noopener">{{> "icons/facebook"}}</a>
-            {{/if}}
-            {{#if @blog.twitter}}
-                <a class="social-link social-link-tw" href="{{twitter_url @blog.twitter}}" target="_blank" rel="noopener">{{> "icons/twitter"}}</a>
-            {{/if}}
-        </div>
-    <    {{#if @labs.subscribers}}
-            <a class="subscribe-button" href="#subscribe">Subscribe</a>
-        {{else}}  -->
-            <a class="rss-button" href="https://feedly.com/i/subscription/feed/{{@blog.url}}/rss/" target="_blank" rel="noopener">{{> "icons/rss"}}</a>
+      <a class="search_button">
+      <i class="fa fa-search search_toggle" style="cursor:pointer;"></i>
+      </a>
+      <!--    {{#if @blog.facebook}}
+         <a class="social-link social-link-fb" href="{{facebook_url @blog.facebook}}" target="_blank" rel="noopener">{{> "icons/facebook"}}</a>
+         {{/if}}
+         {{#if @blog.twitter}}
+         <a class="social-link social-link-tw" href="{{twitter_url @blog.twitter}}" target="_blank" rel="noopener">{{> "icons/twitter"}}</a>
+         {{/if}}
+         </div>
+         <    {{#if @labs.subscribers}}
+         <a class="subscribe-button" href="#subscribe">Subscribe</a>
+         {{else}}  -->
+      <a class="rss-button" href="https://feedly.com/i/subscription/feed/{{@blog.url}}/rss/" target="_blank" rel="noopener">{{> "icons/rss"}}</a>
       <!--  {{/if}} -->
-    </div>
-
+   </div>
 </nav>
