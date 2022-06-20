@@ -1,26 +1,24 @@
-<nav class="navbar">
-  <div class="burger_menu">
-    <label for="burgertoggle" >&#9776;</label>
-    <input type="checkbox" id="burgertoggle"/>
+<div class="navigation">
+  <nav class="navbar">
+    <div class="burger_menu">
+      <label for="burgertoggle">&#9776;</label>
+      <input type="checkbox" id="burgertoggle" />
 
-  </div>
+    </div>
 
-
-
-
- <div class="navbar-left">
-        {{#if @blog.navigation}}
-            {{navigation}}
-        {{/if}}
+    <div class="navbar-left">
+      {{#if @blog.navigation}}
+        {{navigation}}
+      {{/if}}
 
     </div>
 
     <div class="navbar-right">
       <!--  <div class="social-links"> -->
-          <a class="search_button">
-            <i class="fa fa-search search_toggle" style="cursor:pointer;"></i>
-          </a>
-        <!--    {{#if @blog.facebook}}
+      <a class="search_button">
+        <i class="fa fa-search search_toggle" style="cursor:pointer;"></i>
+      </a>
+      <!--    {{#if @blog.facebook}}
                 <a class="social-link social-link-fb" href="{{facebook_url @blog.facebook}}" target="_blank" rel="noopener">{{> "icons/facebook"}}</a>
             {{/if}}
             {{#if @blog.twitter}}
@@ -33,5 +31,57 @@
             <a class="rss-button" href="https://feedly.com/i/subscription/feed/{{@blog.url}}/rss/" target="_blank" rel="noopener">{{> "icons/rss"}}</a>
       <!--  {{/if}} -->
     </div>
-
-</nav>
+  </nav>
+  <div class="dropdown-navbar">
+    <ul>
+      <li class="nav-link">
+        <a href="#!">Interview</a>
+        <ul class="dropdown">
+          <li><a href="#!">50 Array questions</a></li>
+          <li><a href="#!">50 blockchain questions</a></li>
+          <li><a href="#!">50 algorithms questions</a></li>
+          <li><a href="#!">50 machine learning questions</a></li>
+          <li><a href="#!">50 data science questions</a></li>
+          <li><a href="#!">link 3</a></li>
+          <li><a href="#!">link 1</a></li>
+          <li><a href="#!">link 2</a></li>
+          <li><a href="#!">link 3</a></li>
+          <li><a href="#!">link 1</a></li>
+          <li><a href="#!">link 2</a></li>
+          <li><a href="#!">link 3</a></li>
+          <li><a href="#!">link 1</a></li>
+          <li><a href="#!">link 2</a></li>
+          <li><a href="#!">link 3</a></li>
+          <li><a href="#!">link 1</a></li>
+          <li><a href="#!">link 2</a></li>
+          <li><a href="#!">link 3</a></li>
+          <li><a href="#!">link 1</a></li>
+          <li><a href="#!">link 2</a></li>
+          <li><a href="#!">link 3</a></li>
+        </ul>
+      </li>
+      <li class="nav-link">
+        <a href="#!">Algorithms</a>
+        <ul class="dropdown">
+          <li><a href="#!">Greedy algorithms</a></li>
+          <li><a href="#!">Dynamic programming</a></li>
+          <li><a href="#!">Trees</a></li>
+          <li><a href="#!">Stack</a></li>
+          <li><a href="#!">Data structures</a></li>
+          <li><a href="#!">link 6</a></li>
+          <li><a href="#!">link 4</a></li>
+          <li><a href="#!">link 5</a></li>
+          <li><a href="#!">link 6</a></li>
+        </ul>
+      </li>
+      <li class="nav-link">
+        <a href="#!">Blockchain</a>
+        <ul class="dropdown">
+          <li><a href="#!">Etherueum</a></li>
+          <li><a href="#!">Bitcoin</a></li>
+          <li><a href="#!">Solana</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
