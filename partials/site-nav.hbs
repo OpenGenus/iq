@@ -10,7 +10,6 @@
       {{#if @blog.navigation}}
         {{navigation}}
       {{/if}}
-
     </div>
 
     <div class="navbar-right">
@@ -35,7 +34,10 @@
   <div class="dropdown-navbar">
     <ul>
       <li class="nav-link">
-        <a href="#!">Interview</a>
+        <div class="link">
+          <a href="#!">Interview</a>
+          <img class="drop-icon" src="{{asset 'images/down.svg'}}" />
+        </div>
         <ul class="dropdown">
           <li><a href="#!">50 Array questions</a></li>
           <li><a href="#!">50 blockchain questions</a></li>
@@ -61,7 +63,10 @@
         </ul>
       </li>
       <li class="nav-link">
-        <a href="#!">Algorithms</a>
+        <div class="link">
+          <a href="#!">Algorithms</a>
+          <img class="drop-icon" src="{{asset 'images/down.svg'}}" />
+        </div>
         <ul class="dropdown">
           <li><a href="#!">Greedy algorithms</a></li>
           <li><a href="#!">Dynamic programming</a></li>
@@ -75,7 +80,10 @@
         </ul>
       </li>
       <li class="nav-link">
-        <a href="#!">Blockchain</a>
+        <div class="link">
+          <a href="#!">Blockchain</a>
+          <img class="drop-icon" src="{{asset 'images/down.svg'}}" />
+        </div>
         <ul class="dropdown">
           <li><a href="#!">Etherueum</a></li>
           <li><a href="#!">Bitcoin</a></li>
