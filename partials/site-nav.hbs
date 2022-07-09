@@ -1,11 +1,5 @@
 <div class="navigation">
   <nav class="navbar">
-    <div class="burger_menu">
-      <label for="burgertoggle">&#9776;</label>
-      <input type="checkbox" id="burgertoggle" />
-
-    </div>
-
     <div class="navbar-left">
       {{#if @blog.navigation}}
         {{navigation}}
@@ -31,65 +25,161 @@
       <!--  {{/if}} -->
     </div>
   </nav>
-  <div class="dropdown-navbar">
-    <ul>
-      <li class="nav-link">
-        <div class="link">
-          <a href="#!">Interview</a>
-          <img class="drop-icon" src="{{asset 'images/down.svg'}}" />
-        </div>
-        <ul class="dropdown">
-          <li><a href="#!">50 Array questions</a></li>
-          <li><a href="#!">50 blockchain questions</a></li>
-          <li><a href="#!">50 algorithms questions</a></li>
-          <li><a href="#!">50 machine learning questions</a></li>
-          <li><a href="#!">50 data science questions</a></li>
-          <li><a href="#!">link 3</a></li>
-          <li><a href="#!">link 1</a></li>
-          <li><a href="#!">link 2</a></li>
-          <li><a href="#!">link 3</a></li>
-          <li><a href="#!">link 1</a></li>
-          <li><a href="#!">link 2</a></li>
-          <li><a href="#!">link 3</a></li>
-          <li><a href="#!">link 1</a></li>
-          <li><a href="#!">link 2</a></li>
-          <li><a href="#!">link 3</a></li>
-          <li><a href="#!">link 1</a></li>
-          <li><a href="#!">link 2</a></li>
-          <li><a href="#!">link 3</a></li>
-          <li><a href="#!">link 1</a></li>
-          <li><a href="#!">link 2</a></li>
-          <li><a href="#!">link 3</a></li>
-        </ul>
-      </li>
-      <li class="nav-link">
-        <div class="link">
-          <a href="#!">Algorithms</a>
-          <img class="drop-icon" src="{{asset 'images/down.svg'}}" />
-        </div>
-        <ul class="dropdown">
-          <li><a href="#!">Greedy algorithms</a></li>
-          <li><a href="#!">Dynamic programming</a></li>
-          <li><a href="#!">Trees</a></li>
-          <li><a href="#!">Stack</a></li>
-          <li><a href="#!">Data structures</a></li>
-          <li><a href="#!">link 6</a></li>
-          <li><a href="#!">link 4</a></li>
-          <li><a href="#!">link 5</a></li>
-          <li><a href="#!">link 6</a></li>
-        </ul>
-      </li>
-      <li class="nav-link">
-        <div class="link">
-          <a href="#!">Blockchain</a>
-          <img class="drop-icon" src="{{asset 'images/down.svg'}}" />
-        </div>
-        <ul class="dropdown">
-          <li><a href="#!">Etherueum</a></li>
-          <li><a href="#!">Bitcoin</a></li>
-          <li><a href="#!">Solana</a></li>
-        </ul>
-      </li>
-    </ul>
+
+  <div class="wrapper">
+    <input type="checkbox" id="burgertoggle" />
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <div id="dropdown-1" class="dropdown-navbar">
+      <ul>
+        <li class="nav-link">
+          <input type="checkbox" id="sub-menu-1" />
+          <a href="#!">Interview
+            <span class="arrow-sm"> &#x2192;</span>
+            <span class="arrow-lg">&#8595;</span></a>
+          <ul class="dropdown">
+            <label class="menu-label" for="sub-menu-1">
+              <span class="dropdown-title-arrow">&#x2190;</span>
+              A collection of interview questions on different computer science
+              topics</label>
+            <div class="nav-links">
+              <li><a href="#!" target="_blank">50 Array questions First link</a></li>
+              <li><a href="#!" target="_blank">50 blockchain questions</a></li>
+              <li><a href="#!" target="_blank">50 algorithms questions</a></li>
+              <li><a href="#!" target="_blank">50 machine learning questions</a></li>
+              <li><a href="#!" target="_blank">50 data science questions</a></li>
+              <li><a href="#!" target="_blank">50 Array questions</a></li>
+              <li><a href="#!" target="_blank">50 blockchain questions</a></li>
+              <li><a href="#!" target="_blank">50 algorithms questions</a></li>
+              <li><a href="#!" target="_blank">50 machine learning questions</a></li>
+              <li><a href="#!" target="_blank">50 data science questions</a></li>
+              <li><a href="#!" target="_blank">50 Array questions</a></li>
+              <li><a href="#!" target="_blank">50 blockchain questions</a></li>
+              <li><a href="#!" target="_blank">50 algorithms questions</a></li>
+              <li><a href="#!" target="_blank">50 machine learning questions</a></li>
+              <li><a href="#!" target="_blank">50 data science questions</a></li>
+              <li><a href="#!" target="_blank">50 Array questions</a></li>
+              <li><a href="#!" target="_blank">50 blockchain questions</a></li>
+              <li><a href="#!" target="_blank">50 algorithms questions</a></li>
+              <li><a href="#!" target="_blank">50 machine learning questions</a></li>
+              <li><a href="#!" target="_blank">50 data science questions</a></li>
+              <li><a href="#!" target="_blank">50 Array questions</a></li>
+              <li><a href="#!" target="_blank">50 blockchain questions</a></li>
+              <li><a href="#!" target="_blank">50 algorithms questions</a></li>
+              <li><a href="#!" target="_blank">50 machine learning questions</a></li>
+              <li><a href="#!" target="_blank">50 data science questions</a></li>
+              <li><a href="#!" target="_blank">50 Array questions</a></li>
+              <li><a href="#!" target="_blank">50 blockchain questions</a></li>
+              <li><a href="#!" target="_blank">50 algorithms questions</a></li>
+              <li><a href="#!" target="_blank">50 machine learning questions</a></li>
+              <li><a href="#!" target="_blank">50 data science questions</a></li>
+              <li><a href="#!" target="_blank">50 Array questions</a></li>
+              <li><a href="#!" target="_blank">50 blockchain questions</a></li>
+              <li><a href="#!" target="_blank">50 algorithms questions</a></li>
+              <li><a href="#!" target="_blank">50 machine learning questions</a></li>
+              <li><a href="#!" target="_blank">50 data science questions</a></li>
+              <li><a href="#!" target="_blank">50 Array questions</a></li>
+              <li><a href="#!" target="_blank">50 blockchain questions</a></li>
+              <li><a href="#!" target="_blank">50 algorithms questions</a></li>
+              <li><a href="#!" target="_blank">50 machine learning questions</a></li>
+              <li><a href="#!" target="_blank">50 data science questions</a></li>
+            </div>
+          </ul>
+        </li>
+        <li class="nav-link">
+          <input type="checkbox" id="sub-menu-2" />
+          <a href="#!">Algorithms
+            <span class="arrow-sm"> &#x2192; </span>
+            <span class="arrow-lg">&#8595;</span></a>
+          <ul class="dropdown">
+            <label class="menu-label" for="sub-menu-2">
+              <span class="dropdown-title-arrow">&#x2190;</span>
+              Tutorials to help you master different Algorithmic domains</label>
+            <div class="nav-links">
+              <li><a href="#!" target="_blank">Greedy algorithms Dynamic
+                  programmingDynamic First Link programmingDynamic
+                  programmingDynamic programmingDynamic programmingDynamic
+                  programmingDynamic programming</a></li>
+              <li><a href="#!" target="_blank">Dynamic programming</a></li>
+              <li><a href="#!" target="_blank">Trees</a></li>
+              <li><a href="#!" target="_blank">Stack</a></li>
+              <li><a href="#!" target="_blank">Data structures Data
+                  structuresData structuresData structures Data structures</a></li>
+              <li><a href="#!" target="_blank">Back tracking</a></li>
+              <li><a href="#!" target="_blank">Greedy algorithms Dynamic
+                  programmingDynamic programmingDynamic programmingDynamic
+                  programmingDynamic programmingDynamic programmingDynamic
+                  programming</a></li>
+              <li><a href="#!" target="_blank">Tree Algorithms</a></li>
+              <li><a href="#!" target="_blank">Divide and Conquer</a></li>
+              <li><a href="#!" target="_blank">Data structures Data
+                  structuresData structuresData structures Data structures</a></li>
+              <li><a href="#!" target="_blank">Data structures Data
+                  structuresData structuresData structures Data structures</a></li>
+              <li><a href="#!" target="_blank">Tree Algorithms</a></li>
+              <li><a href="#!" target="_blank">Divide and Conquer</a></li>
+              <li><a href="#!" target="_blank">Data structures Data
+                  structuresData structuresData structures Data structures</a></li>
+              <li><a href="#!" target="_blank">Data structures Data
+                  structuresData structuresData structures Data structures</a></li>
+              <li><a href="#!" target="_blank">Tree Algorithms</a></li>
+              <li><a href="#!" target="_blank">Divide and Conquer</a></li>
+              <li><a href="#!" target="_blank">Data structures Data
+                  structuresData structuresData structures Data structures</a></li>
+              <li><a href="#!" target="_blank">Data structures Data
+                  structuresData structuresData structures Data structures</a></li>
+              <li><a href="#!" target="_blank">Tree Algorithms</a></li>
+              <li><a href="#!" target="_blank">Divide and Conquer</a></li>
+              <li><a href="#!" target="_blank">Data structures Data
+                  structuresData structuresData structures Data structures</a></li>
+              <li><a href="#!" target="_blank">Data structures Data
+                  structuresData structuresData structures Data structures</a></li>
+            </div>
+          </ul>
+        </li>
+        <li class="nav-link">
+          <input type="checkbox" id="sub-menu-3" />
+          <a href="#!">Blockchain
+            <span class="arrow-sm">&#x2192;</span>
+            <span class="arrow-lg">&#8595;</span></a>
+          <ul class="dropdown">
+            <label class="menu-label" for="sub-menu-3">
+              <span class="dropdown-title-arrow">&#x2190;</span>
+              A collection of tutorials to master the blockchain.</label>
+            <div class="nav-links">
+              <li><a href="#!" target="_blank">Etherueum</a></li>
+              <li><a href="#!" target="_blank">Bitcoin</a></li>
+              <li><a href="#!" target="_blank">Solana</a></li>
+              <li><a href="#!" target="_blank">NFTs</a></li>
+              <li><a href="#!" target="_blank">Blockchain Networks</a></li>
+              <li><a href="#!" target="_blank">Defi</a></li>
+              <li><a href="#!" target="_blank">Metaverse</a></li>
+              <li><a href="#!" target="_blank">Etherueum</a></li>
+              <li><a href="#!" target="_blank">Bitcoin</a></li>
+              <li><a href="#!" target="_blank">Solana</a></li>
+              <li><a href="#!" target="_blank">NFTs</a></li>
+              <li><a href="#!" target="_blank">Blockchain Networks</a></li>
+              <li><a href="#!" target="_blank">Defi</a></li>
+              <li><a href="#!" target="_blank">Metaverse</a></li>
+              <li><a href="#!" target="_blank">Etherueum</a></li>
+              <li><a href="#!" target="_blank">Bitcoin</a></li>
+              <li><a href="#!" target="_blank">Solana</a></li>
+              <li><a href="#!" target="_blank">NFTs</a></li>
+              <li><a href="#!" target="_blank">Blockchain Networks</a></li>
+              <li><a href="#!" target="_blank">Defi</a></li>
+              <li><a href="#!" target="_blank">Metaverse</a></li>
+              <li><a href="#!" target="_blank">Etherueum</a></li>
+              <li><a href="#!" target="_blank">Bitcoin</a></li>
+              <li><a href="#!" target="_blank">Solana</a></li>
+              <li><a href="#!" target="_blank">NFTs</a></li>
+              <li><a href="#!" target="_blank">Blockchain Networks</a></li>
+              <li><a href="#!" target="_blank">Defi</a></li>
+              <li><a href="#!" target="_blank">Metaverse</a></li>
+            </div>
+          </ul>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
