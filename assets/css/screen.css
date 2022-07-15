@@ -733,6 +733,7 @@ The first (most recent) post in the list is styled to be bigger than the others 
 .page-template .site-main {
   padding-bottom: 4vw;
   background: #fff;
+  overflow-y: hidden;
 }
 
 .post-full {

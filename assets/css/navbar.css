@@ -154,6 +154,15 @@ input[id^="sub-menu-"] {
 .dropdown-title-arrow {
   display: none;
 }
+
+#bar-scroll {
+  color: red;
+}
+
+.scroll-down-close {
+  display: none;
+}
+
 /* responsive design */
 @media (max-width: 700px) {
   .wrapper {
@@ -265,12 +274,12 @@ input[id^="sub-menu-"] {
     display: block;
     width: 40px;
     height: 32px;
-    position: absolute;
-    top: -2.9rem;
-    left: -0.2rem;
+    top: 15px;
+    left: 14px;
     cursor: pointer;
     opacity: 0;
     z-index: 999;
+    position: fixed;
   }
   .wrapper .span {
     position: relative;
@@ -278,6 +287,16 @@ input[id^="sub-menu-"] {
     left: 0;
   }
   /*hamburger*/
+  .bars {
+    position: fixed;
+    z-index: 101;
+    top: 9px;
+    left: 10px;
+    background: #000;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+  }
   .bar {
     cursor: pointer;
     display: block;
@@ -287,11 +306,10 @@ input[id^="sub-menu-"] {
     position: relative;
     background: #fff;
     border-radius: 3px;
-    z-index: 9;
+    z-index: 999;
     transform-origin: 4px 0px;
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
       background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
-    top: -3rem;
   }
 
   .bar:first-child {
@@ -302,8 +320,8 @@ input[id^="sub-menu-"] {
   }
   #burgertoggle:checked ~ .bar {
     opacity: 1;
-    transform: rotate(45deg) translate(-1px, -1px);
-    background: #fff;
+    transform: rotate(45deg) translate(-9px, 7px);
+    background: red;
   }
   #burgertoggle:checked ~ .bar:nth-last-child(3) {
     opacity: 0;
@@ -311,7 +329,7 @@ input[id^="sub-menu-"] {
   }
   #burgertoggle:checked ~ .bar:nth-last-child(2) {
     opacity: 1;
-    transform: rotate(-45deg) translate(2px, -1px);
+    transform: rotate(-45deg) translate(-19px, 3px);
   }
 
   label.menu-label:after {
