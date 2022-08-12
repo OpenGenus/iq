@@ -26,10 +26,40 @@ production stylesheet in assets/built/screen.css
 
 /* 1. Global - Set up the things
 /* ---------------------------------------------------------- */
-@import "global.css";
+:root {
+    --body-bg-color: #f4f8fb;
+    --body-bg-color-full: none;
+    --body-bg-color-mixed: none;
+    --post-card-color: #fff ;
+    --post-card-shadow: rgba(39,44,49,0.10);
+    --post-card-hover:  rgba(39,44,49,0.15);
+    --title-text-color: none;
+    --text-color-full: color(var(--darkgrey) l(-5%)); 
+    --text-color-full-light: var(--darkgrey);
+    --text-color-transtition: black;
+    
+  }
+  
+:root.dark-theme {
+    --body-bg-color: rgb(43, 42, 42);   
+    --body-bg-color-full:  #000;
+    --body-bg-color-mixed:  rgb(34, 31, 31);
+    --post-card-color:  rgb(20, 20, 20);
+    --post-card-shadow:  rgba(75, 73, 73, 0.466);
+   /* --post-card-hover:  rgba(167, 167, 167, 0.61); */
+    --post-card-hover: rgba(241, 234, 234, 0.315);
+    --darkgrey: white;
+    --title-text-color: #fff;
+    --text-color-full: white;
+    --text-color-transtition: white;
+    --text-color-full-light: white;
+    
+  }
+
+
 
 body {
-    background: #f4f8fb;
+    background: var(--body-bg-color);
 }
 
 .img {
@@ -66,6 +96,11 @@ body {
 .outer {
     position: relative;
     padding: 0 4vw;
+    background-color: var(--body-bg-color-full);
+}
+
+aside.outer{
+    background-color: var(--body-bg-color-mixed);
 }
 
 /* Centered content container blocks */
@@ -393,15 +428,15 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
     overflow: hidden;
     margin: 0 20px 40px;
     min-height: 300px;
-    background: #fff center center;
+    background: var(--post-card-color) center center;
     background-size: cover;
     border-radius: 5px;
-    box-shadow: rgba(39,44,49,0.06) 8px 14px 38px, rgba(39, 44, 49, 0.03) 1px 3px 8px;
+    box-shadow: var(--post-card-shadow) 8px 14px 38px, var(--post-card-hover) 1px 3px 8px;
     transition: all 0.5s ease;
 }
 
 .post-card:hover {
-    box-shadow: 0 0 1px rgba(39,44,49,0.10), 0 3px 16px rgba(39, 44, 49,0.07);
+    box-shadow: 0 0 1px var(--post-card-shadow), 0 3px 16px var(--post-card-hover);
     transition: all 0.3s ease;
     transform: translate3D(0, -1px, 0);
 }
@@ -444,6 +479,7 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
 
 .post-card-title {
     margin-top: 0;
+    color: var(--title-text-color);
 }
 
 .post-card-content {
@@ -451,6 +487,7 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    color: var(--title-text-color);
 }
 
 .post-card-excerpt {
@@ -459,6 +496,8 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
 
 .post-card-meta {
     padding: 0 25px 25px;
+    background: var(--body-bg-color-full);
+
 }
 
 .author-profile-image {
@@ -546,7 +585,7 @@ The first (most recent) post in the list is styled to be bigger than the others 
 .post-template .site-main,
 .page-template .site-main {
     padding-bottom: 4vw;
-    background: #fff;
+    background: var(--post-card-color);
 }
 
 .post-full {
@@ -560,6 +599,7 @@ The first (most recent) post in the list is styled to be bigger than the others 
     padding: 2vw 3vw 3vw;
     max-width: 1040px;
     text-align: center;
+    background-color: var(--post-card-color) ;
 }
 @media (max-width: 500px) {
     .post-full-header {
@@ -582,7 +622,7 @@ The first (most recent) post in the list is styled to be bigger than the others 
 }
 .post-full-title {
     margin: 20px;
-    color: color(var(--darkgrey) l(-5%));
+    color:  var(--text-color-full);
 }
 
 .date-divider {
@@ -620,7 +660,8 @@ The first (most recent) post in the list is styled to be bigger than the others 
     font-family: Arial;
     font-size: 1.4rem;
     line-height: 1.6em;
-    background: #fff;
+    background:  var(--post-card-color);
+    color:var(--title-text-color);
 }
 
 @media (max-width: 1170px) {
@@ -634,6 +675,109 @@ The first (most recent) post in the list is styled to be bigger than the others 
     }
 }
 
+/* STYLING FOR TOGGLE THEME BUTTON*/
+
+.checkbox {
+    opacity: 0;
+    position: absolute;
+}
+
+.label {
+    background-color: skyblue;
+    border-radius: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    padding: 5px;
+    position: relative;
+    height: 24px;
+    width: 24px;
+    transform: scale(1.2);
+    
+}
+
+.gg-sun {
+    box-sizing: border-box;
+    position: fixed;
+    display: block;
+    color: #FFCC33;
+    width: 24px;
+    height: 24px;
+    background:
+        linear-gradient(to bottom,
+        currentColor 4px,transparent 0)
+        no-repeat 5px -6px/2px 6px,
+        linear-gradient(to bottom,
+        currentColor 4px,transparent 0)
+        no-repeat 5px 14px/2px 6px,
+        linear-gradient(to bottom,
+        currentColor 4px,transparent 0)
+        no-repeat -8px 5px/6px 2px,
+        linear-gradient(to bottom,
+        currentColor 4px,transparent 0)
+        no-repeat 14px 5px/6px 2px;
+    border-radius: 100px;
+    box-shadow: inset 0 0 0 2px;
+    border: 6px solid transparent;
+    transform: scale(0.7);
+}
+
+.gg-sun::after,
+.gg-sun::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    border-right: 4px solid;
+    border-left: 4px solid;
+    left: -6px;
+    top: 5px;
+}
+.ball {
+    display: none;
+}
+.gg-sun::before {
+   transform: rotate(-45deg)
+}
+
+.gg-sun::after {
+    transform: rotate(45deg)
+} 
+
+        
+.checkbox:checked + .label {
+    background-color: black;
+    height: 24px;
+    width: 24px;
+    padding: 5px;
+   
+}
+
+.checkbox:checked + .label .gg-sun {
+    
+    display: none;
+    
+}
+.checkbox:checked + .label .ball {
+    border-radius: 50%;
+    position: absolute;
+    top: 6px;
+    left: 5px;
+    height: 12px;
+    width: 12px;
+    background-color: black;
+    display: block;
+    box-shadow: inset 0px 5px #FFFACD, inset 0px 5px 0.5px 0.5px #FFFACD;
+    -moz-box-shadow: inset 0px 5px #FFFACD, inset 0px 5px 0.5px 0.5px #FFFACD;
+    transform: rotate(110deg);
+    
+}
+
+
+
 .post-full-content:before {
     content: "";
     position: absolute;
@@ -643,7 +787,7 @@ The first (most recent) post in the list is styled to be bigger than the others 
     display: block;
     width: 20px;
     height: 200px;
-    background: rgba(39,44,49,0.15);
+    background: var(--post-card-hover);
     filter: blur(5px);
     transform: rotate(-5deg);
 }
@@ -657,7 +801,7 @@ The first (most recent) post in the list is styled to be bigger than the others 
     display: block;
     width: 20px;
     height: 200px;
-    background: rgba(39,44,49,0.15);
+    background: var(--post-card-hover);
     filter: blur(5px);
     transform: rotate(5deg);
 }
@@ -709,7 +853,7 @@ The first (most recent) post in the list is styled to be bigger than the others 
 }
 
 .post-full-content a {
-    color: #000;
+    color:  var(--text-color-transtition);
     box-shadow: var(--blue) 0 -1px 0 inset;
 }
 
@@ -720,7 +864,7 @@ The first (most recent) post in the list is styled to be bigger than the others 
 
 .post-full-content strong,
 .post-full-content em {
-    color: color(var(--darkgrey) l(-5%));
+    color:var(--text-color-full);
 }
 
 .post-full-content small {
@@ -858,7 +1002,7 @@ Usage (In Ghost editor):
 .post-full-content h4,
 .post-full-content h5,
 .post-full-content h6 {
-    color: color(var(--darkgrey) l(-5%));
+    color: var(--text-color-full);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
@@ -888,6 +1032,7 @@ Usage (In Ghost editor):
     margin: 0.5em 0 0.2em 0;
     font-size: 2.8rem;
     font-weight: 700;
+    color: var(--title-text-color);
 }
 @media (max-width: 500px) {
     .post-full-content h3 {
@@ -1021,7 +1166,7 @@ Usage (In Ghost editor):
 }
 
 .post-full-content table th {
-    color: var(--darkgrey);
+    color: var(--text-color-full-light);
     font-size: 1.2rem;
     font-weight: 700;
     letter-spacing: 0.2px;
@@ -1154,6 +1299,10 @@ Usage (In Ghost editor):
 /* 7.2. Post Footer
 /* ---------------------------------------------------------- */
 
+.footer {
+    background-color: var(--body-bg-color-full);
+}
+
 .post-full-footer {
     display: flex;
     justify-content: space-between;
@@ -1236,6 +1385,7 @@ Usage (In Ghost editor):
     flex-wrap: wrap;
     margin: 0 -20px;
     padding: 40px 0 0 0;
+    background-color: var(--body-bg-color-mixed);
 }
 
 .read-next-card {
@@ -1479,7 +1629,7 @@ Usage (In Ghost editor):
 }
 
 .floating-header-share-tw,
-.floating-header-share-fb,{
+.floating-header-share-fb{
     display: block;
     align-items: center;
     width: 60px;
@@ -1920,4 +2070,13 @@ Usage (In Ghost editor):
     .site-footer-nav a:first-child {
         margin-left: 0;
     }
+}
+
+
+.tag_item{
+    color: var(--text-color-full-light);
+}
+
+.taglabel{
+    color: var(--text-color-full-light);
 }
