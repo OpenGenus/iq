@@ -32,6 +32,63 @@
         {{else}}  -->
             <a class="rss-button" href="https://feedly.com/i/subscription/feed/{{@blog.url}}/rss/" target="_blank" rel="noopener">{{> "icons/rss"}}</a>
       <!--  {{/if}} -->
+
+      <!-- Theme icon button -->
+          <div title="Theme" class="theme_toggle" style="padding-right: 2rem; padding-left: 1.5rem;">
+            <input type="checkbox" class="checkbox" id="chk"/>
+            <label class="label" for="chk">
+              <div class="gg-sun"></div>
+
+              <div class="ball"></div>
+            </label>
+             <script>
+              let dark_theme = localStorage.getItem('dark_theme');
+
+              const darkModeToggle = document.querySelector('#chk');
+              
+
+              const enableDarkMode = () => {
+                // 1. Add the class to the body
+                 document.documentElement.classList.add('dark-theme');  
+                // 2. Update darkMode in localStorage
+                localStorage.setItem('dark_theme', 'enabled');
+                darkModeToggle.setAttribute('checked', true);
+              }
+
+              const disableDarkMode = () => {
+                // 1. Remove the class from the body
+                document.documentElement.classList.remove('dark-theme'); 
+                // 2. Update darkMode and toggle in localStorage 
+                localStorage.setItem('dark_theme', null);
+                darkModeToggle.setAttribute('checked', false);
+              }
+              
+              // If the user already visited and enabled darkMode
+              
+              if (dark_theme === 'enabled') {
+                enableDarkMode();
+              }
+
+              // When someone clicks the button
+              darkModeToggle.addEventListener('click', () => {
+                // get their darkMode setting
+                dark_theme = localStorage.getItem('dark_theme');
+                
+                // if it not current enabled, enable it
+                if (dark_theme !== 'enabled') {
+                  enableDarkMode();
+                // if it has been enabled, turn it off  
+                } else {  
+                  disableDarkMode(); 
+                }
+              });
+      
+    
+    
+ 
+             </script>
+          </div>
+      	
     </div>
 
 </nav>
