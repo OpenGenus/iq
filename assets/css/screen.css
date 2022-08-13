@@ -36,7 +36,7 @@ production stylesheet in assets/built/screen.css
     --title-text-color: none;
     --text-color-full: color(var(--darkgrey) l(-5%)); 
     --text-color-full-light: var(--darkgrey);
-    --text-color-transtition: black;
+    --text-color-transition: black;
     
   }
   
@@ -51,7 +51,7 @@ production stylesheet in assets/built/screen.css
     --darkgrey: white;
     --title-text-color: #fff;
     --text-color-full: white;
-    --text-color-transtition: white;
+    --text-color-transition: white;
     --text-color-full-light: white;
     
   }
@@ -853,7 +853,7 @@ The first (most recent) post in the list is styled to be bigger than the others 
 }
 
 .post-full-content a {
-    color:  var(--text-color-transtition);
+    color:  var(--text-color-transition);
     box-shadow: var(--blue) 0 -1px 0 inset;
 }
 
