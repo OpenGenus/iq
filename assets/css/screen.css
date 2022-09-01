@@ -992,7 +992,7 @@ Usage (In Ghost editor):
     width: 1px;
     height: 30px;
     background: color(var(--lightgrey) l(+10%));
-    box-shadow: #fff 0 0 0 5px;
+    box-shadow: var(--post-card-color) 0 0 0 5px;
     transform: rotate(45deg);
 }
 
@@ -2079,4 +2079,8 @@ Usage (In Ghost editor):
 
 .taglabel{
     color: var(--text-color-full-light);
+}
+
+h4 span {
+    color: var(--text-color-transition);
 }
