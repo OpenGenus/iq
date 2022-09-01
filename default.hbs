@@ -14,6 +14,7 @@
   {{!-- Styles'n'Scripts --}}
   <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" />
   <link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}" />
+  <link rel="stylesheet" type="text/css" href="{{asset "css/global.css"}}" />
   <link rel="stylesheet" type="text/css" href="{{asset "css/tab.css"}}" />
   <link rel="stylesheet" type="text/css" href="{{asset "css/prism.css"}}" />
   <link rel="stylesheet" type="text/css" href="{{asset "css/head_tab.css"}}" />
@@ -74,7 +75,7 @@
   <a href="http://iq.opengenus.org/guide-to-writing-a-note-at-opengenus-iq/">Write at Opengenus IQ</a>
 </div>
 
-<body class="{{body_class}}">
+<body class="{{body_class}}" style="visibility: hidden;" onload="document.body.style.visibility='visible'">
 
   <div id="search_page" class="search_page search_page_hide">
     <div class="search_page_close search_toggle">&times</div>
