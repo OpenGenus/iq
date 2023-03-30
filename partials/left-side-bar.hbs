@@ -1,0 +1,24 @@
+<aside id="left-side-bar-inner" class="left-side-bar-inner">
+  {{#if tags}}
+    <div class="tag-title">
+      <span class="side-bar-tag-name">
+        {{primary_tag.name}}
+        tutorial
+      </span>
+    </div>
+  {{/if}}
+  <div class="left-side-bar-links">
+    <ul>
+      {{#foreach tags}}
+        {{#get "posts" filter="primary_tag:{{slug}}"}}
+          {{#foreach posts limit="50"}}
+            <li class="left-side-bar-link"><a
+                target="_blank"
+                href="{{url}}"
+              >{{title}}</a></li>
+          {{/foreach}}
+        {{/get}}
+      {{/foreach}}
+    </ul>
+  </div>
+</aside>

@@ -43,9 +43,34 @@ into the {body} of the default.hbs template --}}
 {{#post}}
 
 <main id="site-main" class="site-main outer" role="main">
-  <div class="inner">
+  {{!-- <div class="main-wrapper"> --}}
+  <div id="main-posts" class="main-posts">
+    {{!-- LEFT SIDE BAR --}}
+    <div id="left-side-bar-wrapper" class="left-side-bar-wrapper">
+      <div id="first-left" class="first-left">
+        <div id="left-side-bar-top" class="left-side-bar-top">
+          {{> "left-side-bar-top"}}
+           {{!-- <button id="view-more" class="view-more">view more</button>
+           <button id="view-more" class="view-more">hide</button> --}}
+        </div>
+      </div>
+      <div class="second-left">
+        {{#if tags}}    
+      <div id="left-side-bar" class="left-side-bar">
+          {{> "left-side-bar"}}
+      </div>
+    {{else}}
+      <div id="left-side-bar" class="left-side-bar">
+        {{> "left-side-bar-common"}}
+      </div>
+    {{/if}}
+      </div>
+    </div>
+       
+      {{!-- INNER CONTENT --}}
+  <div class="inner" id="inner">
 
-    <article class="post-full {{post_class}} {{#unless feature_image}}no-image{{/unless}}">
+    <article id="post-full" class="post-full {{post_class}} {{#unless feature_image}}no-image{{/unless}}">
 
       <header class="post-full-header">
         <h1 class="post-full-title" style="color:#292929; font-size:30px ; ">{{title}}</h1>
@@ -108,7 +133,6 @@ into the {body} of the default.hbs template --}}
         {{!--  taglist : display the list of tags  --}}
         <div class="upper_taglist">
           <h4 id="text" class="less">
-
             <div id="taglist">
 
 
@@ -139,20 +163,38 @@ into the {body} of the default.hbs template --}}
 
       <button id="scrollBtn" class="fa fa-angle-up" title="Go to top"></button>
 
+      <div class="post-content">
       <section class="post-full-content">
-
+        {{!-- <a href="http://internship.opengenus.org" target="_blank">
+        <picture>
+          <source media="(max-width: 400px)" srcset="/assets/images/internship-small.png">
+          <img src="https://iq.opengenus.org/assets/images/internship.png" style="width:100%;" alt="Internship at OpenGenus" border="0">
+        </picture>
+        </a> --}}
         {{content}}
       </section>
+
+        
+
+      </div>
 
       <!-- Discourse forum -->
 
   </div>
+  </div>
+  {{!-- RIGHT SIDE BAR --}}
+    {{!-- <div class="right-side-bar-wrapper">
+      <div id="right-side-bar" class="right-side-bar">
+          {{> "right-side-bar"}}
+      </div>
+      </div> --}}
+  {{!-- </div> --}}
 
   <!-- shuffle button -->
   {{!-- Email subscribe form at the bottom of the page --}}
   {{#if @labs.subscribers}}
   <section class="subscribe-form">
-    <h3 class="subscribe-form-title">Subscribe to {{@blog.title}}</h3>
+    <h3 class="subscribe-form-title">Subscribe to {{@site.title}}</h3>
     <p>Get the latest posts delivered right to your inbox</p>
     {{subscribe_form placeholder="youremail@example.com"}}
   </section>
@@ -161,7 +203,7 @@ into the {body} of the default.hbs template --}}
   <footer>
     {{!-- Everything inside the #author tags pulls data from the author --}}
     <div class="post-full-footer">
-      {{#author}}
+      {{#primary_author}}
 
       <section class="author-card">
         {{#if profile_image}}
@@ -187,7 +229,7 @@ into the {body} of the default.hbs template --}}
 
 
 
-      {{/author}}
+      {{/primary_author}}
 
     </div>
     {{!-- Displaying secondary authors --}}
@@ -284,10 +326,10 @@ into the {body} of the default.hbs template --}}
       {{#get "posts" filter="tags:{{primary_tag.slug}}+id:-{{id}}" limit="3" as |related_posts|}}
       {{#if related_posts}}
       <article class="read-next-card" {{#if ../primary_tag.feature_image}}
-        style="background-image: url({{../primary_tag.feature_image}})" {{else}} {{#if @blog.cover_image}}
-        style="background-image: url({{@blog.cover_image}})" {{/if}} {{/if}}>
+        style="background-image: url({{../primary_tag.feature_image}})" {{else}} {{#if @site.cover_image}}
+        style="background-image: url({{@site.cover_image}})" {{/if}} {{/if}}>
         <header class="read-next-card-header">
-          <small class="read-next-card-header-sitetitle">&mdash; {{@blog.title}} &mdash;</small>
+          <small class="read-next-card-header-sitetitle">&mdash; {{@site.title}} &mdash;</small>
           {{#../primary_tag}}
           <h3 class="read-next-card-header-title"><a href="{{url}}">{{name}}</a></h3>
           {{/../primary_tag}}
@@ -560,7 +602,6 @@ into the {body} of the default.hbs template --}}
       questions[c].children[i].style.display = "block";
     }
   }
-
 </script>
 
 <style>
